@@ -1,23 +1,23 @@
 module ALU(
-	input [25:0]rs,
-	input [25:0]rt,
+	input [31:0]rs,
+	input [31:0]rt,
 	input [3:0]ctrl,
-	output reg [25:0]rd,
+	output reg [31:0]rd,
 	output reg overflow
 	);
-	wire [25:0]addu;
-	wire [25:0]add;
-	wire [25:0]and_;
-	wire [25:0]or_;
-	wire [25:0]not_;
-	wire [25:0]nor_;
-	wire [25:0]xor_;
-	wire [25:0]neg;
-	wire [25:0]subu;
-	wire [25:0]sub;
-	wire [25:0]sltu;
-	wire [25:0]slt;
-	wire [25:0]neg_rt;
+	wire [31:0]addu;
+	wire [31:0]add;
+	wire [31:0]and_;
+	wire [31:0]or_;
+	wire [31:0]not_;
+	wire [31:0]nor_;
+	wire [31:0]xor_;
+	wire [31:0]neg;
+	wire [31:0]subu;
+	wire [31:0]sub;
+	wire [31:0]sltu;
+	wire [31:0]slt;
+	wire [31:0]neg_rt;
 	wire addOF;
 	wire subOF;
 	wire subSF;
@@ -37,10 +37,10 @@ module ALU(
 	assign sub = rs+neg_rt+1'b1;
 	assign sltu = rs < rt;
 	
-	assign addOF = (rs[25] == rt[25]) && (add[25] != rs[25]);
+	assign addOF = (rs[31] == rt[31]) && (add[31] != rs[31]);
 	
-	assign subOF = (rs[25] == neg_rt[25]) && (sub[25] != rs[25]);
-	assign subSF = sub[25];
+	assign subOF = (rs[31] == neg_rt[31]) && (sub[31] != rs[31]);
+	assign subSF = sub[31];
 	assign subZF = ~(|sub);
 	
 	assign slt = (subOF != subSF) && (!subZF);
@@ -67,7 +67,7 @@ module ALU(
 			end
 			4'b1010: rd = sltu;
 			4'b1011: rd = slt;
-			default: rd = 26'd0;
+			default: rd = 32'd0;
 		endcase
 	end
 	

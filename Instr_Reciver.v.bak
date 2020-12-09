@@ -1,0 +1,36 @@
+module Instr_Reciver(
+	input clk;
+	input [7:0]instr_1B,
+	output [18:0]instr_addr
+	);
+	reg [31:0]instr;
+	reg [18:0]PC;
+	reg [2:0]solving;
+	
+	always @ (posedge clk)
+	begin
+		case (solving)
+			3'b000: begin
+				
+				solving <= 3'b001;
+			end
+			3'b001: begin
+			
+				solving <= 3'b010;
+			end
+			3'b010: begin
+			
+				solving <= 3'b011;
+			end
+			3'b011: begin
+			
+				solving <= 3'b100;
+			end
+			3'b100: begin
+			
+				solving <= 3'b000;
+			end
+		endcase
+	end
+	
+endmodule
