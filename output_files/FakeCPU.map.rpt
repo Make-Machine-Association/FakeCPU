@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FakeCPU
-Sun Dec 06 15:16:00 2020
+Wed Dec 16 20:34:36 2020
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -13,11 +13,16 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  8. State Machine - |Instr_Reciver|solving
+  9. State Machine - |Instr_Reciver|Decode:dc|decoding
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Port Connectivity Checks: "Decode:dc"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -43,14 +48,14 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Dec 06 15:16:00 2020       ;
+; Analysis & Synthesis Status     ; Successful - Wed Dec 16 20:34:36 2020       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; FakeCPU                                     ;
-; Top-level Entity Name           ; ALU                                         ;
+; Top-level Entity Name           ; Instr_Reciver                               ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 0                                           ;
-; Total pins                      ; 83                                          ;
+; Total registers                 ; 278                                         ;
+; Total pins                      ; 289                                         ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -69,7 +74,7 @@ refer to the applicable agreement for further details.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CSXFC6D6F31C6     ;                    ;
-; Top-level entity name                                                           ; ALU                ; FakeCPU            ;
+; Top-level entity name                                                           ; Instr_Reciver      ; FakeCPU            ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
@@ -159,57 +164,131 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                              ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                ; Library ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------+---------+
-; ALU.v                            ; yes             ; User Verilog HDL File  ; D:/Programming/DigitExp/exp12/FakeCPU/ALU.v ;         ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                        ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                          ; Library ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------+---------+
+; Instr_Reciver.v                  ; yes             ; User Verilog HDL File  ; D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v ;         ;
+; ALU.v                            ; yes             ; User Verilog HDL File  ; D:/Programming/DigitExp/exp12/FakeCPU/ALU.v           ;         ;
+; Decode.v                         ; yes             ; User Verilog HDL File  ; D:/Programming/DigitExp/exp12/FakeCPU/Decode.v        ;         ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------+---------+
 
 
-+-------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                 ;
-+---------------------------------------------+---------------+
-; Resource                                    ; Usage         ;
-+---------------------------------------------+---------------+
-; Estimate of Logic utilization (ALMs needed) ; 124           ;
-;                                             ;               ;
-; Combinational ALUT usage for logic          ; 217           ;
-;     -- 7 input functions                    ; 0             ;
-;     -- 6 input functions                    ; 30            ;
-;     -- 5 input functions                    ; 87            ;
-;     -- 4 input functions                    ; 10            ;
-;     -- <=3 input functions                  ; 90            ;
-;                                             ;               ;
-; Dedicated logic registers                   ; 0             ;
-;                                             ;               ;
-; I/O pins                                    ; 83            ;
-;                                             ;               ;
-; Total DSP Blocks                            ; 0             ;
-;                                             ;               ;
-; Maximum fan-out node                        ; ctrl[1]~input ;
-; Maximum fan-out                             ; 48            ;
-; Total fan-out                               ; 997           ;
-; Average fan-out                             ; 2.60          ;
-+---------------------------------------------+---------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 218       ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 296       ;
+;     -- 7 input functions                    ; 32        ;
+;     -- 6 input functions                    ; 34        ;
+;     -- 5 input functions                    ; 51        ;
+;     -- 4 input functions                    ; 21        ;
+;     -- <=3 input functions                  ; 158       ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 278       ;
+;                                             ;           ;
+; I/O pins                                    ; 289       ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 278       ;
+; Total fan-out                               ; 2517      ;
+; Average fan-out                             ; 2.18      ;
++---------------------------------------------+-----------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |ALU                       ; 217 (217)           ; 0 (0)                     ; 0                 ; 0          ; 83   ; 0            ; |ALU                ; ALU         ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                 ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------+---------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name            ; Entity Name   ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------+---------------+--------------+
+; |Instr_Reciver             ; 296 (14)            ; 278 (53)                  ; 0                 ; 0          ; 289  ; 0            ; |Instr_Reciver                 ; Instr_Reciver ; work         ;
+;    |Decode:dc|             ; 282 (135)           ; 225 (225)                 ; 0                 ; 0          ; 0    ; 0            ; |Instr_Reciver|Decode:dc       ; Decode        ; work         ;
+;       |ALU:a|              ; 147 (147)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Instr_Reciver|Decode:dc|ALU:a ; ALU           ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------+
+; State Machine - |Instr_Reciver|solving                         ;
++------------+------------+------------+------------+------------+
+; Name       ; solving.11 ; solving.10 ; solving.01 ; solving.00 ;
++------------+------------+------------+------------+------------+
+; solving.00 ; 0          ; 0          ; 0          ; 0          ;
+; solving.01 ; 0          ; 0          ; 1          ; 1          ;
+; solving.10 ; 0          ; 1          ; 0          ; 1          ;
+; solving.11 ; 1          ; 0          ; 0          ; 1          ;
++------------+------------+------------+------------+------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Instr_Reciver|Decode:dc|decoding                                                                                                                                                                                                                                                                                                 ;
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+; Name           ; decoding.10010 ; decoding.10001 ; decoding.10000 ; decoding.01111 ; decoding.01110 ; decoding.01101 ; decoding.01100 ; decoding.01011 ; decoding.01010 ; decoding.01001 ; decoding.01000 ; decoding.00111 ; decoding.00110 ; decoding.00101 ; decoding.00100 ; decoding.00011 ; decoding.00010 ; decoding.00001 ; decoding.00000 ;
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+; decoding.00000 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ;
+; decoding.00001 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 1              ;
+; decoding.00010 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 1              ;
+; decoding.00011 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 1              ;
+; decoding.00100 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.00101 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.00110 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.00111 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.01000 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.01001 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.01010 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.01011 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.01100 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.01101 ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.01110 ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.01111 ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.10000 ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.10001 ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.10010 ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; Decode:dc|PC_wdata[1,28..31]           ; Merged with Decode:dc|PC_wdata[0]      ;
+; Decode:dc|PC_wdata[0]                  ; Stuck at GND due to stuck port data_in ;
+; solving~6                              ; Lost fanout                            ;
+; solving~7                              ; Lost fanout                            ;
+; Decode:dc|decoding~15                  ; Lost fanout                            ;
+; Decode:dc|decoding~16                  ; Lost fanout                            ;
+; Decode:dc|decoding~17                  ; Lost fanout                            ;
+; Decode:dc|decoding~18                  ; Lost fanout                            ;
+; Decode:dc|decoding~19                  ; Lost fanout                            ;
+; solving.11                             ; Lost fanout                            ;
+; Total Number of Removed Registers = 14 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++-----------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                 ;
++---------------+--------------------+----------------------------------------+
+; Register name ; Reason for Removal ; Registers Removed due to This Register ;
++---------------+--------------------+----------------------------------------+
+; solving~6     ; Lost Fanouts       ; solving.11                             ;
++---------------+--------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -217,23 +296,38 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 278   ;
+; Number of registers using Synchronous Clear  ; 37    ;
+; Number of registers using Synchronous Load   ; 34    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 250   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 16:1               ; 25 bits   ; 250 LEs       ; 150 LEs              ; 100 LEs                ; No         ; |ALU|Mux24                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Instr_Reciver|Decode:dc|ALU_rt[25]   ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |Instr_Reciver|Decode:dc|REG_raddr[4] ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 5 LEs                ; 15 LEs                 ; Yes        ; |Instr_Reciver|Decode:dc|REG_waddr[0] ;
+; 19:1               ; 31 bits   ; 372 LEs       ; 186 LEs              ; 186 LEs                ; Yes        ; |Instr_Reciver|Decode:dc|REG_wdata[4] ;
+; 127:1              ; 4 bits    ; 336 LEs       ; 32 LEs               ; 304 LEs                ; Yes        ; |Instr_Reciver|Decode:dc|ALU_ctrl[0]  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Instr_Reciver|Selector3              ;
+; 66:1               ; 6 bits    ; 264 LEs       ; 36 LEs               ; 228 LEs                ; No         ; |Instr_Reciver|Decode:dc|decoding     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Decode:dc"                                                                                                                                  ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; PC   ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (19 bits) it drives.  Extra input bit(s) "PC[18..1]" will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -241,22 +335,34 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 217                         ;
-;     arith             ; 52                          ;
-;         1 data inputs ; 26                          ;
-;         2 data inputs ; 26                          ;
-;     normal            ; 139                         ;
-;         2 data inputs ; 9                           ;
-;         3 data inputs ; 3                           ;
-;         4 data inputs ; 10                          ;
-;         5 data inputs ; 87                          ;
-;         6 data inputs ; 30                          ;
-;     shared            ; 26                          ;
-;         2 data inputs ; 26                          ;
-; boundary_port         ; 83                          ;
+; arriav_ff             ; 278                         ;
+;     ENA               ; 185                         ;
+;     ENA SCLR          ; 31                          ;
+;     ENA SCLR SLD      ; 2                           ;
+;     ENA SLD           ; 32                          ;
+;     SCLR              ; 4                           ;
+;     plain             ; 24                          ;
+; arriav_lcell_comb     ; 297                         ;
+;     arith             ; 81                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 43                          ;
+;         2 data inputs ; 37                          ;
+;     extend            ; 32                          ;
+;         7 data inputs ; 32                          ;
+;     normal            ; 152                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 25                          ;
+;         3 data inputs ; 18                          ;
+;         4 data inputs ; 21                          ;
+;         5 data inputs ; 51                          ;
+;         6 data inputs ; 34                          ;
+;     shared            ; 32                          ;
+;         2 data inputs ; 32                          ;
+; boundary_port         ; 289                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 4.78                        ;
+; Max LUT depth         ; 7.10                        ;
+; Average LUT depth     ; 3.42                        ;
 +-----------------------+-----------------------------+
 
 
@@ -275,26 +381,66 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Sun Dec 06 15:15:51 2020
+    Info: Processing started: Wed Dec 16 20:34:27 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FakeCPU -c FakeCPU
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file instr_reciver.v
+    Info (12023): Found entity 1: Instr_Reciver File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file fakecpu.v
     Info (12023): Found entity 1: FakeCPU File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file alu.v
     Info (12023): Found entity 1: ALU File: D:/Programming/DigitExp/exp12/FakeCPU/ALU.v Line: 1
-Info (12127): Elaborating entity "ALU" for the top level hierarchy
+Info (12021): Found 1 design units, including 1 entities, in source file reg.v
+    Info (12023): Found entity 1: REG File: D:/Programming/DigitExp/exp12/FakeCPU/REG.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mmemory.v
+    Info (12023): Found entity 1: MMemory File: D:/Programming/DigitExp/exp12/FakeCPU/MMemory.v Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file decode.v
+    Info (12023): Found entity 1: Decode File: D:/Programming/DigitExp/exp12/FakeCPU/Decode.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file pc_register.v
+    Info (12023): Found entity 1: PC_register File: D:/Programming/DigitExp/exp12/FakeCPU/PC_register.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at Instr_Reciver.v(24): created implicit net for "PC" File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 24
+Info (12127): Elaborating entity "Instr_Reciver" for the top level hierarchy
+Info (12128): Elaborating entity "Decode" for hierarchy "Decode:dc" File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 25
+Warning (10036): Verilog HDL or VHDL warning at Decode.v(24): object "shamt" assigned a value but never read File: D:/Programming/DigitExp/exp12/FakeCPU/Decode.v Line: 24
+Warning (10230): Verilog HDL assignment warning at Decode.v(158): truncated value with size 512 to match size of target (32) File: D:/Programming/DigitExp/exp12/FakeCPU/Decode.v Line: 158
+Info (12128): Elaborating entity "ALU" for hierarchy "Decode:dc|ALU:a" File: D:/Programming/DigitExp/exp12/FakeCPU/Decode.v Line: 44
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "PC_wdata[0]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 16
+    Warning (13410): Pin "PC_wdata[1]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 16
+    Warning (13410): Pin "PC_wdata[28]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 16
+    Warning (13410): Pin "PC_wdata[29]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 16
+    Warning (13410): Pin "PC_wdata[30]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 16
+    Warning (13410): Pin "PC_wdata[31]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 16
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 8 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 300 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 56 input pins
-    Info (21059): Implemented 27 output pins
-    Info (21061): Implemented 217 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4844 megabytes
-    Info: Processing ended: Sun Dec 06 15:16:00 2020
+Warning (21074): Design contains 15 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "PC_rdata[17]" File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 15
+    Warning (15610): No output dependent on input pin "PC_rdata[18]" File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 15
+    Warning (15610): No output dependent on input pin "PC_rdata[19]" File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 15
+    Warning (15610): No output dependent on input pin "PC_rdata[20]" File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 15
+    Warning (15610): No output dependent on input pin "PC_rdata[21]" File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 15
+    Warning (15610): No output dependent on input pin "PC_rdata[22]" File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 15
+    Warning (15610): No output dependent on input pin "PC_rdata[23]" File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 15
+    Warning (15610): No output dependent on input pin "PC_rdata[24]" File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 15
+    Warning (15610): No output dependent on input pin "PC_rdata[25]" File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 15
+    Warning (15610): No output dependent on input pin "PC_rdata[26]" File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 15
+    Warning (15610): No output dependent on input pin "PC_rdata[27]" File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 15
+    Warning (15610): No output dependent on input pin "PC_rdata[28]" File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 15
+    Warning (15610): No output dependent on input pin "PC_rdata[29]" File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 15
+    Warning (15610): No output dependent on input pin "PC_rdata[30]" File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 15
+    Warning (15610): No output dependent on input pin "PC_rdata[31]" File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 15
+Info (21057): Implemented 793 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 129 input pins
+    Info (21059): Implemented 160 output pins
+    Info (21061): Implemented 504 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 28 warnings
+    Info: Peak virtual memory: 4875 megabytes
+    Info: Processing ended: Wed Dec 16 20:34:36 2020
     Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:17
+    Info: Total CPU time (on all processors): 00:00:16
 
 

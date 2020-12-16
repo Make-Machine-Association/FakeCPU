@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Sun Dec 06 15:16:00 2020
+Analysis & Synthesis Status : Successful - Wed Dec 16 20:34:36 2020
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : FakeCPU
-Top-level Entity Name : ALU
+Top-level Entity Name : Instr_Reciver
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 0
-Total pins : 83
+Total registers : 278
+Total pins : 289
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0

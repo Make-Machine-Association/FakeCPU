@@ -1,58 +1,52 @@
 module Instr_Reciver(
-	input clk;
-	input [7:0]instr_1B,
-	input [31:0]MMemory_data,
-	input [31:0]REG_data,
-	output [18:0]instr_addr,
-	output [18:0]MMemory_addr,
-	output [4:0]REG_addr
+	input clk,
+	input [31:0]instr_1B,
+	input [31:0]MMemory_rdata,
+	output [31:0]MMemory_wdata,
+	input [31:0]REG_rdata,
+	output [31:0]REG_wdata,
+	output reg [16:0]instr_addr,
+	output [16:0]MMemory_raddr,
+	output [16:0]MMemory_waddr,
+	output MMemory_wren,
+	output [4:0]REG_raddr,
+	output [4:0]REG_waddr,
+	output REG_wren,
+	input [31:0]PC_rdata,
+	output [31:0]PC_wdata,
+	output PC_wren
 	);
 	reg [31:0]instr;
-	reg [18:0]PC;
-	reg [2:0]solving;
+	reg [1:0]solving;
 	reg run;
 	wire ok;
 	
-	Decode dc(clk, instr, PC, run, MMemory_data, REG_data, ok, MMemory_addr, REG_addr);
+	Decode dc(clk, instr, PC, run, MMemory_rdata, MMemory_wdata, REG_rdata, REG_wdata, ok, 
+		MMemory_raddr, MMemory_waddr, MMemory_wren, REG_raddr, REG_waddr, REG_wren, PC_wdata, PC_wren);
 	
 	always @ (posedge clk)
 	begin
 		case (solving)
-			3'b000: begin
-				instr_addr <= PC;
-				instr <= {instr[23:0], instr_1B};
-				solving <= 3'b001;
+			2'b00: begin
+				instr_addr <= PC_rdata[16:0];
+				instr <= instr_1B;
+				solving <= 2'b01;
 			end
-			3'b001: begin
-				instr_addr <= instr_addr+19'd1;
-				instr <= {instr[23:0], instr_1B};
-				solving <= 3'b010;
-			end
-			3'b010: begin
-				instr_addr <= instr_addr+19'd1;
-				instr <= {instr[23:0], instr_1B};
-				solving <= 3'b011;
-			end
-			3'b011: begin
-				instr_addr <= instr_addr+19'd1;
-				instr <= {instr[23:0], instr_1B};
-				solving <= 3'b100;
-			end
-			3'b100: begin
+			2'b01: begin
 				if (instr == 32'h00000000) begin
-					solving <= 3'b110;
+					solving <= 2'b11;
 				end else begin
 					run <= 1'b1;
-					solving <= 3'b101;
+					solving <= 2'b10;
 				end
 			end
-			3'b101: begin
+			2'b10: begin
 				if (ok) begin
 					run <= 1'b0;
-					solving <= 3'b000;
+					solving <= 2'b00;
 				end
 			end
-			3'b110: begin
+			2'b11: begin
 				//TODO
 			end
 		endcase
