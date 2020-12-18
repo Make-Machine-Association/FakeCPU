@@ -17,7 +17,7 @@
 // suit user's needs .Comments are provided in each section to help the user    
 // fill out necessary details.                                                  
 // *****************************************************************************
-// Generated on "12/18/2020 18:27:36"
+// Generated on "12/18/2020 20:11:42"
                                                                                 
 // Verilog Test Bench template for design : FakeCPU
 // 
@@ -35,28 +35,38 @@ reg go;
 reg [31:0] init_pc;
 reg init_wren;
 // wires                                               
+wire clk_instr;
 wire [31:0]  data_pc;
 wire finish;
+wire [4:0]  test_decoding;
 wire [31:0]  test_instr;
+wire test_run;
+wire test_ok;
 
 // assign statements (if any)                          
 FakeCPU i1 (
 // port map - connection between master ports and signals/registers   
 	.clk(clk),
+	.clk_instr(clk_instr),
 	.data_pc(data_pc),
 	.finish(finish),
 	.go(go),
 	.init_pc(init_pc),
 	.init_wren(init_wren),
-	.test_instr(test_instr)
+	.test_decoding(test_decoding),
+	.test_instr(test_instr),
+	.test_run(test_run),
+	.test_ok(test_ok)
 );
 initial                                                
 begin                                                  
 // code that executes only once                        
 // insert code here --> begin                          
-	clk = 1'b0; init_pc = 32'd0; init_wren = 1'b1; go = 1'b0;
+	clk = 1'b0; go = 1'b0; init_pc = 32'd0; init_wren = 1'b1;
 	#10;
-	init_wren = 1'b0; go = 1'b1;
+	init_wren = 1'b0; 
+	#10;
+	go = 1'b1;
 	#1000;
 	$stop;
 // --> end                                             

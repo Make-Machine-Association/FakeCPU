@@ -59,7 +59,12 @@ set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME ALU_vlg_tst -section_id A
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name MIF_FILE fib.mif
+set_global_assignment -name EDA_TEST_BENCH_FILE simulation/modelsim/ALU.vt -section_id ALU
+set_global_assignment -name EDA_TEST_BENCH_NAME FakeCPU -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id FakeCPU
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME FakeCPU_vlg_tst -section_id FakeCPU
+set_global_assignment -name EDA_TEST_BENCH_FILE simulation/modelsim/FakeCPU.vt -section_id FakeCPU
+set_global_assignment -name VERILOG_FILE clkgen.v
 set_global_assignment -name VERILOG_FILE Instr_Reciver.v
 set_global_assignment -name VERILOG_FILE FakeCPU.v
 set_global_assignment -name VERILOG_FILE ALU.v
@@ -69,9 +74,5 @@ set_global_assignment -name VERILOG_FILE Decode.v
 set_global_assignment -name VERILOG_FILE PC_register.v
 set_global_assignment -name VERILOG_FILE MM_Manager.v
 set_global_assignment -name QIP_FILE fib_rom.qip
-set_global_assignment -name EDA_TEST_BENCH_FILE simulation/modelsim/ALU.vt -section_id ALU
-set_global_assignment -name EDA_TEST_BENCH_NAME FakeCPU -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id FakeCPU
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME FakeCPU_vlg_tst -section_id FakeCPU
-set_global_assignment -name EDA_TEST_BENCH_FILE simulation/modelsim/FakeCPU.vt -section_id FakeCPU
+set_global_assignment -name MIF_FILE fib.mif
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

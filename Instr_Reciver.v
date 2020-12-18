@@ -21,7 +21,10 @@ module Instr_Reciver(
 	input go,
 	output reg finish,
 	//Test
-	output [31:0]test_instr
+	output [31:0]test_instr,
+	output [4:0]test_decoding,
+	output test_run,
+	output test_ok
 	);
 	reg [31:0]instr;
 	reg [2:0]solving;
@@ -31,11 +34,14 @@ module Instr_Reciver(
 	assign test_instr = instr;
 	
 	Decode dc(clk, instr, run, MMemory_rdata, MMemory_wdata, REG_rdata, REG_wdata, ok, 
-		MMemory_raddr, MMemory_waddr, MMemory_wren, REG_raddr, REG_waddr, REG_wren, PC_decode_wdata, PC_decode_wren, intr);
+		MMemory_raddr, MMemory_waddr, MMemory_wren, REG_raddr, REG_waddr, REG_wren, PC_decode_wdata, PC_decode_wren, intr, test_decoding);
 	
 	initial
 	begin
 		instr = 32'd0;
+		solving = 3'b000;
+		run = 1'b0;
+		finish = 1'b0;
 	end
 	
 	always @ (posedge clk)
@@ -44,40 +50,43 @@ module Instr_Reciver(
 			case (solving)
 				3'b000: begin
 					instr_addr <= PC_rdata[9:0];
-					instr <= {instr_1B, instr[31:24]};
 					PC_instr_wdata <= PC_rdata+32'd1;
 					PC_instr_wren <= 1'b1;
 					solving <= 3'b001;
 				end
 				3'b001: begin
 					instr_addr <= PC_rdata[9:0];
-					instr <= {instr_1B, instr[31:24]};
+					instr <= {instr[23:0], instr_1B};
 					PC_instr_wdata <= PC_rdata+32'd1;
 					solving <= 3'b010;
 				end
 				3'b010: begin
 					instr_addr <= PC_rdata[9:0];
-					instr <= {instr_1B, instr[31:24]};
+					instr <= {instr[23:0], instr_1B};
 					PC_instr_wdata <= PC_rdata+32'd1;
 					solving <= 3'b011;
 				end
 				3'b011: begin
 					instr_addr <= PC_rdata[9:0];
-					instr <= {instr_1B, instr[31:24]};
+					instr <= {instr[23:0], instr_1B};
 					PC_instr_wdata <= PC_rdata+32'd1;
 					solving <= 3'b100;
 				end
 				3'b100: begin
+					instr <= {instr[23:0], instr_1B};
 					PC_instr_wren <= 1'b0;
+					solving <= 3'b101;
+				end
+				3'b101: begin
 					if (instr == 32'h00000000) begin
 						solving <= 3'b000;
 						finish <= 1'b1;
 					end else begin
 						run <= 1'b1;
-						solving <= 3'b101;
+						solving <= 3'b110;
 					end
 				end
-				3'b101: begin
+				3'b110: begin
 					if (ok) begin
 						run <= 1'b0;
 						solving <= 3'b000;
@@ -89,5 +98,9 @@ module Instr_Reciver(
 			finish <= 1'b0;
 		end
 	end
+	
+	//Test
+	assign test_run = run;
+	assign test_ok = ok;
 	
 endmodule

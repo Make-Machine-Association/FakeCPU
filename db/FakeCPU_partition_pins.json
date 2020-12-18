@@ -136,6 +136,38 @@
 					"strict" : false
 				},
 				{
+					"name" : "test_instr[0]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[1]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[2]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[3]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[4]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[5]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[6]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[7]",
+					"strict" : false
+				},
+				{
 					"name" : "test_instr[8]",
 					"strict" : false
 				},
@@ -168,11 +200,103 @@
 					"strict" : false
 				},
 				{
-					"name" : "go",
+					"name" : "test_instr[16]",
 					"strict" : false
 				},
 				{
-					"name" : "clk",
+					"name" : "test_instr[17]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[18]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[19]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[20]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[21]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[22]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[23]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[24]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[25]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[26]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[27]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[28]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[29]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[30]",
+					"strict" : false
+				},
+				{
+					"name" : "test_instr[31]",
+					"strict" : false
+				},
+				{
+					"name" : "clk_instr",
+					"strict" : false
+				},
+				{
+					"name" : "test_decoding[0]",
+					"strict" : false
+				},
+				{
+					"name" : "test_decoding[1]",
+					"strict" : false
+				},
+				{
+					"name" : "test_decoding[2]",
+					"strict" : false
+				},
+				{
+					"name" : "test_decoding[3]",
+					"strict" : false
+				},
+				{
+					"name" : "test_decoding[4]",
+					"strict" : false
+				},
+				{
+					"name" : "test_run",
+					"strict" : false
+				},
+				{
+					"name" : "test_ok",
+					"strict" : false
+				},
+				{
+					"name" : "go",
 					"strict" : false
 				},
 				{
@@ -181,6 +305,10 @@
 				},
 				{
 					"name" : "init_wren",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
 					"strict" : false
 				},
 				{

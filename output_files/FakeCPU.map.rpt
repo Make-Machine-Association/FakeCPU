@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FakeCPU
-Fri Dec 18 18:37:08 2020
+Fri Dec 18 21:47:53 2020
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -23,14 +23,16 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
  15. Multiplexer Restructuring Statistics (Restructuring Performed)
  16. Source assignments for fib_rom:fib|altsyncram:altsyncram_component|altsyncram_9tf1:auto_generated
  17. Source assignments for MM_Manager:mm_m|MMemory:mm_ram|altsyncram:altsyncram_component|altsyncram_7qu1:auto_generated
- 18. Parameter Settings for User Entity Instance: fib_rom:fib|altsyncram:altsyncram_component
- 19. Parameter Settings for User Entity Instance: MM_Manager:mm_m|MMemory:mm_ram|altsyncram:altsyncram_component
- 20. altsyncram Parameter Settings by Entity Instance
- 21. Port Connectivity Checks: "Instr_Reciver:i_r"
- 22. Port Connectivity Checks: "REG:register"
- 23. Post-Synthesis Netlist Statistics for Top Partition
- 24. Elapsed Time Per Partition
- 25. Analysis & Synthesis Messages
+ 18. Parameter Settings for User Entity Instance: clkgen:instr_clkgen
+ 19. Parameter Settings for User Entity Instance: fib_rom:fib|altsyncram:altsyncram_component
+ 20. Parameter Settings for User Entity Instance: MM_Manager:mm_m|MMemory:mm_ram|altsyncram:altsyncram_component
+ 21. altsyncram Parameter Settings by Entity Instance
+ 22. Port Connectivity Checks: "Instr_Reciver:i_r"
+ 23. Port Connectivity Checks: "REG:register"
+ 24. Port Connectivity Checks: "clkgen:instr_clkgen"
+ 25. Post-Synthesis Netlist Statistics for Top Partition
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
 
 
 
@@ -56,14 +58,14 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Dec 18 18:37:08 2020       ;
+; Analysis & Synthesis Status     ; Successful - Fri Dec 18 21:47:53 2020       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; FakeCPU                                     ;
 ; Top-level Entity Name           ; FakeCPU                                     ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 98                                          ;
-; Total pins                      ; 100                                         ;
+; Total registers                 ; 196                                         ;
+; Total pins                      ; 108                                         ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 8,192                                       ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -185,7 +187,7 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                     ; Library ;
 +----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------+---------+
-; fib.mif                          ; yes             ; User Memory Initialization File  ; D:/Programming/DigitExp/exp12/FakeCPU/fib.mif                    ;         ;
+; clkgen.v                         ; yes             ; User Verilog HDL File            ; D:/Programming/DigitExp/exp12/FakeCPU/clkgen.v                   ;         ;
 ; Instr_Reciver.v                  ; yes             ; User Verilog HDL File            ; D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v            ;         ;
 ; FakeCPU.v                        ; yes             ; User Verilog HDL File            ; D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v                  ;         ;
 ; ALU.v                            ; yes             ; User Verilog HDL File            ; D:/Programming/DigitExp/exp12/FakeCPU/ALU.v                      ;         ;
@@ -195,6 +197,7 @@ refer to the applicable agreement for further details.
 ; PC_register.v                    ; yes             ; User Verilog HDL File            ; D:/Programming/DigitExp/exp12/FakeCPU/PC_register.v              ;         ;
 ; MM_Manager.v                     ; yes             ; User Verilog HDL File            ; D:/Programming/DigitExp/exp12/FakeCPU/MM_Manager.v               ;         ;
 ; fib_rom.v                        ; yes             ; User Wizard-Generated File       ; D:/Programming/DigitExp/exp12/FakeCPU/fib_rom.v                  ;         ;
+; fib.mif                          ; yes             ; User Memory Initialization File  ; D:/Programming/DigitExp/exp12/FakeCPU/fib.mif                    ;         ;
 ; altsyncram.tdf                   ; yes             ; Megafunction                     ; e:/quartus/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
 ; stratix_ram_block.inc            ; yes             ; Megafunction                     ; e:/quartus/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
 ; lpm_mux.inc                      ; yes             ; Megafunction                     ; e:/quartus/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
@@ -212,33 +215,33 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 52        ;
-;                                             ;           ;
-; Combinational ALUT usage for logic          ; 63        ;
-;     -- 7 input functions                    ; 0         ;
-;     -- 6 input functions                    ; 2         ;
-;     -- 5 input functions                    ; 5         ;
-;     -- 4 input functions                    ; 12        ;
-;     -- <=3 input functions                  ; 44        ;
-;                                             ;           ;
-; Dedicated logic registers                   ; 98        ;
-;                                             ;           ;
-; I/O pins                                    ; 100       ;
-; Total MLAB memory bits                      ; 0         ;
-; Total block memory bits                     ; 8192      ;
-;                                             ;           ;
-; Total DSP Blocks                            ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 106       ;
-; Total fan-out                               ; 745       ;
-; Average fan-out                             ; 2.02      ;
-+---------------------------------------------+-----------+
++--------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                              ;
++---------------------------------------------+----------------------------+
+; Resource                                    ; Usage                      ;
++---------------------------------------------+----------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 113                        ;
+;                                             ;                            ;
+; Combinational ALUT usage for logic          ; 173                        ;
+;     -- 7 input functions                    ; 2                          ;
+;     -- 6 input functions                    ; 23                         ;
+;     -- 5 input functions                    ; 9                          ;
+;     -- 4 input functions                    ; 28                         ;
+;     -- <=3 input functions                  ; 111                        ;
+;                                             ;                            ;
+; Dedicated logic registers                   ; 196                        ;
+;                                             ;                            ;
+; I/O pins                                    ; 108                        ;
+; Total MLAB memory bits                      ; 0                          ;
+; Total block memory bits                     ; 8192                       ;
+;                                             ;                            ;
+; Total DSP Blocks                            ; 0                          ;
+;                                             ;                            ;
+; Maximum fan-out node                        ; clkgen:instr_clkgen|clkout ;
+; Maximum fan-out                             ; 133                        ;
+; Total fan-out                               ; 1459                       ;
+; Average fan-out                             ; 2.46                       ;
++---------------------------------------------+----------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -246,10 +249,11 @@ refer to the applicable agreement for further details.
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                 ; Entity Name     ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------+-----------------+--------------+
-; |FakeCPU                                  ; 63 (0)              ; 98 (0)                    ; 8192              ; 0          ; 100  ; 0            ; |FakeCPU                                                                            ; FakeCPU         ; work         ;
-;    |Instr_Reciver:i_r|                    ; 54 (47)             ; 66 (59)                   ; 0                 ; 0          ; 0    ; 0            ; |FakeCPU|Instr_Reciver:i_r                                                          ; Instr_Reciver   ; work         ;
-;       |Decode:dc|                         ; 7 (7)               ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |FakeCPU|Instr_Reciver:i_r|Decode:dc                                                ; Decode          ; work         ;
-;    |PC_register:pc|                       ; 9 (9)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |FakeCPU|PC_register:pc                                                             ; PC_register     ; work         ;
+; |FakeCPU                                  ; 173 (0)             ; 196 (0)                   ; 8192              ; 0          ; 108  ; 0            ; |FakeCPU                                                                            ; FakeCPU         ; work         ;
+;    |Instr_Reciver:i_r|                    ; 97 (53)             ; 131 (84)                  ; 0                 ; 0          ; 0    ; 0            ; |FakeCPU|Instr_Reciver:i_r                                                          ; Instr_Reciver   ; work         ;
+;       |Decode:dc|                         ; 44 (44)             ; 47 (47)                   ; 0                 ; 0          ; 0    ; 0            ; |FakeCPU|Instr_Reciver:i_r|Decode:dc                                                ; Decode          ; work         ;
+;    |PC_register:pc|                       ; 33 (33)             ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |FakeCPU|PC_register:pc                                                             ; PC_register     ; work         ;
+;    |clkgen:instr_clkgen|                  ; 43 (43)             ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |FakeCPU|clkgen:instr_clkgen                                                        ; clkgen          ; work         ;
 ;    |fib_rom:fib|                          ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |FakeCPU|fib_rom:fib                                                                ; fib_rom         ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |FakeCPU|fib_rom:fib|altsyncram:altsyncram_component                                ; altsyncram      ; work         ;
 ;          |altsyncram_9tf1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |FakeCPU|fib_rom:fib|altsyncram:altsyncram_component|altsyncram_9tf1:auto_generated ; altsyncram_9tf1 ; work         ;
@@ -277,158 +281,112 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------------------------+
-; State Machine - |FakeCPU|Instr_Reciver:i_r|solving                                              ;
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-; Name        ; solving.101 ; solving.100 ; solving.011 ; solving.010 ; solving.001 ; solving.000 ;
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-; solving.000 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ;
-; solving.001 ; 0           ; 0           ; 0           ; 0           ; 1           ; 1           ;
-; solving.010 ; 0           ; 0           ; 0           ; 1           ; 0           ; 1           ;
-; solving.011 ; 0           ; 0           ; 1           ; 0           ; 0           ; 1           ;
-; solving.100 ; 0           ; 1           ; 0           ; 0           ; 0           ; 1           ;
-; solving.101 ; 1           ; 0           ; 0           ; 0           ; 0           ; 1           ;
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
++---------------------------------------------------------------------------------------------------------------+
+; State Machine - |FakeCPU|Instr_Reciver:i_r|solving                                                            ;
++-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+; Name        ; solving.110 ; solving.101 ; solving.100 ; solving.011 ; solving.010 ; solving.001 ; solving.000 ;
++-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+; solving.000 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ;
+; solving.001 ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 1           ;
+; solving.010 ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 1           ;
+; solving.011 ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 1           ;
+; solving.100 ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 1           ;
+; solving.101 ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 1           ;
+; solving.110 ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ;
++-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |FakeCPU|Instr_Reciver:i_r|Decode:dc|decoding                                                                                                                                                                                                                                                                                                                                                         ;
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-; Name           ; decoding.10110 ; decoding.10101 ; decoding.10100 ; decoding.10011 ; decoding.10010 ; decoding.10001 ; decoding.10000 ; decoding.01111 ; decoding.01110 ; decoding.01101 ; decoding.01100 ; decoding.01011 ; decoding.01010 ; decoding.01001 ; decoding.01000 ; decoding.00111 ; decoding.00110 ; decoding.00101 ; decoding.00100 ; decoding.00011 ; decoding.00010 ; decoding.00001 ; decoding.00000 ;
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-; decoding.00000 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ;
-; decoding.00001 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 1              ;
-; decoding.00010 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 1              ;
-; decoding.00011 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 1              ;
-; decoding.00100 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 1              ;
-; decoding.00101 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 1              ;
-; decoding.00110 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
-; decoding.00111 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
-; decoding.01000 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
-; decoding.01001 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
-; decoding.01010 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
-; decoding.01011 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
-; decoding.01100 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
-; decoding.01101 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
-; decoding.01110 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
-; decoding.01111 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
-; decoding.10000 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
-; decoding.10001 ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
-; decoding.10010 ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
-; decoding.10011 ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
-; decoding.10100 ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
-; decoding.10101 ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
-; decoding.10110 ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |FakeCPU|Instr_Reciver:i_r|Decode:dc|decoding                                                                                                                                                                                                                                                                                                                                                                                           ;
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+; Name           ; decoding.11000 ; decoding.10111 ; decoding.10110 ; decoding.10101 ; decoding.10100 ; decoding.10011 ; decoding.10010 ; decoding.10001 ; decoding.10000 ; decoding.01111 ; decoding.01110 ; decoding.01101 ; decoding.01100 ; decoding.01011 ; decoding.01010 ; decoding.01001 ; decoding.01000 ; decoding.00111 ; decoding.00110 ; decoding.00101 ; decoding.00100 ; decoding.00011 ; decoding.00010 ; decoding.00001 ; decoding.00000 ;
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+; decoding.00000 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ;
+; decoding.00001 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 1              ;
+; decoding.00010 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 1              ;
+; decoding.00011 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 1              ;
+; decoding.00100 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.00101 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.00110 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.00111 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.01000 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.01001 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.01010 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.01011 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.01100 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.01101 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.01110 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.01111 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.10000 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.10001 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.10010 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.10011 ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.10100 ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.10101 ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.10110 ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.10111 ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; decoding.11000 ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                    ;
-+---------------------------------------------------------+-------------------------------------------------------------+
-; Register name                                           ; Reason for Removal                                          ;
-+---------------------------------------------------------+-------------------------------------------------------------+
-; MM_Manager:mm_m|raddr[0..18]                            ; Lost fanout                                                 ;
-; Instr_Reciver:i_r|Decode:dc|MMemory_waddr[0..3]         ; Lost fanout                                                 ;
-; Instr_Reciver:i_r|Decode:dc|MMemory_wdata[0..7]         ; Lost fanout                                                 ;
-; Instr_Reciver:i_r|Decode:dc|MMemory_wren                ; Lost fanout                                                 ;
-; Instr_Reciver:i_r|Decode:dc|intr                        ; Lost fanout                                                 ;
-; Instr_Reciver:i_r|Decode:dc|MMemory_waddr[4..18]        ; Lost fanout                                                 ;
-; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[0..18]        ; Lost fanout                                                 ;
-; Instr_Reciver:i_r|instr[0..7,16..31]                    ; Stuck at GND due to stuck port data_in                      ;
-; Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[1,28..31]   ; Merged with Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[0]  ;
-; Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[2,3,13..27] ; Merged with Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[12] ;
-; Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[12]         ; Merged with Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[0]  ;
-; Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[0]          ; Stuck at GND due to stuck port data_in                      ;
-; Instr_Reciver:i_r|solving~8                             ; Lost fanout                                                 ;
-; Instr_Reciver:i_r|solving~9                             ; Lost fanout                                                 ;
-; Instr_Reciver:i_r|solving~10                            ; Lost fanout                                                 ;
-; Instr_Reciver:i_r|Decode:dc|decoding~19                 ; Lost fanout                                                 ;
-; Instr_Reciver:i_r|Decode:dc|decoding~20                 ; Lost fanout                                                 ;
-; Instr_Reciver:i_r|Decode:dc|decoding~21                 ; Lost fanout                                                 ;
-; Instr_Reciver:i_r|Decode:dc|decoding~22                 ; Lost fanout                                                 ;
-; Instr_Reciver:i_r|Decode:dc|decoding~23                 ; Lost fanout                                                 ;
-; Instr_Reciver:i_r|Decode:dc|decoding.01011              ; Merged with Instr_Reciver:i_r|Decode:dc|decoding.00111      ;
-; Instr_Reciver:i_r|Decode:dc|decoding.01111              ; Merged with Instr_Reciver:i_r|Decode:dc|decoding.00111      ;
-; Instr_Reciver:i_r|Decode:dc|decoding.10011              ; Merged with Instr_Reciver:i_r|Decode:dc|decoding.00111      ;
-; Instr_Reciver:i_r|Decode:dc|decoding.01010              ; Merged with Instr_Reciver:i_r|Decode:dc|decoding.00110      ;
-; Instr_Reciver:i_r|Decode:dc|decoding.01101              ; Merged with Instr_Reciver:i_r|Decode:dc|decoding.00110      ;
-; Instr_Reciver:i_r|Decode:dc|decoding.01110              ; Merged with Instr_Reciver:i_r|Decode:dc|decoding.00110      ;
-; Instr_Reciver:i_r|Decode:dc|decoding.10010              ; Merged with Instr_Reciver:i_r|Decode:dc|decoding.00110      ;
-; Instr_Reciver:i_r|Decode:dc|decoding.10001              ; Merged with Instr_Reciver:i_r|Decode:dc|decoding.01001      ;
-; Instr_Reciver:i_r|Decode:dc|decoding.10101              ; Merged with Instr_Reciver:i_r|Decode:dc|decoding.01001      ;
-; Instr_Reciver:i_r|Decode:dc|decoding.10000              ; Merged with Instr_Reciver:i_r|Decode:dc|decoding.01000      ;
-; Instr_Reciver:i_r|Decode:dc|decoding.10100              ; Merged with Instr_Reciver:i_r|Decode:dc|decoding.01000      ;
-; Instr_Reciver:i_r|Decode:dc|decoding.00110              ; Stuck at GND due to stuck port data_in                      ;
-; Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[4..11]      ; Stuck at GND due to stuck port data_in                      ;
-; Instr_Reciver:i_r|Decode:dc|decoding.00111              ; Stuck at GND due to stuck port data_in                      ;
-; Instr_Reciver:i_r|Decode:dc|decoding.01100              ; Stuck at GND due to stuck port data_in                      ;
-; Instr_Reciver:i_r|Decode:dc|decoding.01000              ; Stuck at GND due to stuck port data_in                      ;
-; Instr_Reciver:i_r|Decode:dc|PC_decode_wren              ; Stuck at GND due to stuck port data_in                      ;
-; Instr_Reciver:i_r|Decode:dc|decoding.01001              ; Stuck at GND due to stuck port data_in                      ;
-; Instr_Reciver:i_r|Decode:dc|decoding.10110              ; Stuck at GND due to stuck port data_in                      ;
-; Total Number of Removed Registers = 149                 ;                                                             ;
-+---------------------------------------------------------+-------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                 ;
++-------------------------------------------------------+------------------------------------------------------------+
+; Register name                                         ; Reason for Removal                                         ;
++-------------------------------------------------------+------------------------------------------------------------+
+; MM_Manager:mm_m|raddr[0..18]                          ; Lost fanout                                                ;
+; Instr_Reciver:i_r|Decode:dc|MMemory_waddr[0..4]       ; Lost fanout                                                ;
+; Instr_Reciver:i_r|Decode:dc|MMemory_wdata[0..7]       ; Lost fanout                                                ;
+; Instr_Reciver:i_r|Decode:dc|MMemory_wren              ; Lost fanout                                                ;
+; Instr_Reciver:i_r|Decode:dc|intr                      ; Lost fanout                                                ;
+; Instr_Reciver:i_r|Decode:dc|MMemory_waddr[5..18]      ; Lost fanout                                                ;
+; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[0..18]      ; Lost fanout                                                ;
+; Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[1,28..31] ; Merged with Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[0] ;
+; Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[0]        ; Stuck at GND due to stuck port data_in                     ;
+; Instr_Reciver:i_r|solving~9                           ; Lost fanout                                                ;
+; Instr_Reciver:i_r|solving~10                          ; Lost fanout                                                ;
+; Instr_Reciver:i_r|solving~11                          ; Lost fanout                                                ;
+; Instr_Reciver:i_r|Decode:dc|decoding~21               ; Lost fanout                                                ;
+; Instr_Reciver:i_r|Decode:dc|decoding~22               ; Lost fanout                                                ;
+; Instr_Reciver:i_r|Decode:dc|decoding~23               ; Lost fanout                                                ;
+; Instr_Reciver:i_r|Decode:dc|decoding~24               ; Lost fanout                                                ;
+; Instr_Reciver:i_r|Decode:dc|decoding~25               ; Lost fanout                                                ;
+; Instr_Reciver:i_r|Decode:dc|decoding.10011            ; Stuck at GND due to stuck port data_in                     ;
+; Instr_Reciver:i_r|Decode:dc|decoding.10100            ; Stuck at GND due to stuck port data_in                     ;
+; Instr_Reciver:i_r|Decode:dc|decoding.10101            ; Stuck at GND due to stuck port data_in                     ;
+; Instr_Reciver:i_r|Decode:dc|decoding.10110            ; Stuck at GND due to stuck port data_in                     ;
+; Instr_Reciver:i_r|Decode:dc|decoding.10111            ; Stuck at GND due to stuck port data_in                     ;
+; Instr_Reciver:i_r|Decode:dc|decoding.11000            ; Stuck at GND due to stuck port data_in                     ;
+; Total Number of Removed Registers = 87                ;                                                            ;
++-------------------------------------------------------+------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                              ;
-+--------------------------------------------+---------------------------+---------------------------------------------------------------------------------+
-; Register name                              ; Reason for Removal        ; Registers Removed due to This Register                                          ;
-+--------------------------------------------+---------------------------+---------------------------------------------------------------------------------+
-; Instr_Reciver:i_r|Decode:dc|decoding.00110 ; Stuck at GND              ; Instr_Reciver:i_r|Decode:dc|decoding.00111,                                     ;
-;                                            ; due to stuck port data_in ; Instr_Reciver:i_r|Decode:dc|decoding.01000,                                     ;
-;                                            ;                           ; Instr_Reciver:i_r|Decode:dc|PC_decode_wren,                                     ;
-;                                            ;                           ; Instr_Reciver:i_r|Decode:dc|decoding.01001,                                     ;
-;                                            ;                           ; Instr_Reciver:i_r|Decode:dc|decoding.10110                                      ;
-; Instr_Reciver:i_r|instr[24]                ; Stuck at GND              ; Instr_Reciver:i_r|instr[0], Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[0],     ;
-;                                            ; due to stuck port data_in ; Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[10]                                 ;
-; Instr_Reciver:i_r|instr[25]                ; Stuck at GND              ; Instr_Reciver:i_r|instr[1], Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[11]     ;
-;                                            ; due to stuck port data_in ;                                                                                 ;
-; MM_Manager:mm_m|raddr[16]                  ; Lost Fanouts              ; Instr_Reciver:i_r|Decode:dc|intr, Instr_Reciver:i_r|Decode:dc|MMemory_raddr[16] ;
-; MM_Manager:mm_m|raddr[17]                  ; Lost Fanouts              ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[17]                                   ;
-; MM_Manager:mm_m|raddr[18]                  ; Lost Fanouts              ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[18]                                   ;
-; MM_Manager:mm_m|raddr[13]                  ; Lost Fanouts              ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[13]                                   ;
-; MM_Manager:mm_m|raddr[14]                  ; Lost Fanouts              ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[14]                                   ;
-; MM_Manager:mm_m|raddr[15]                  ; Lost Fanouts              ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[15]                                   ;
-; MM_Manager:mm_m|raddr[0]                   ; Lost Fanouts              ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[0]                                    ;
-; MM_Manager:mm_m|raddr[1]                   ; Lost Fanouts              ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[1]                                    ;
-; MM_Manager:mm_m|raddr[2]                   ; Lost Fanouts              ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[2]                                    ;
-; MM_Manager:mm_m|raddr[3]                   ; Lost Fanouts              ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[3]                                    ;
-; MM_Manager:mm_m|raddr[4]                   ; Lost Fanouts              ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[4]                                    ;
-; MM_Manager:mm_m|raddr[5]                   ; Lost Fanouts              ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[5]                                    ;
-; MM_Manager:mm_m|raddr[6]                   ; Lost Fanouts              ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[6]                                    ;
-; MM_Manager:mm_m|raddr[7]                   ; Lost Fanouts              ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[7]                                    ;
-; MM_Manager:mm_m|raddr[8]                   ; Lost Fanouts              ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[8]                                    ;
-; MM_Manager:mm_m|raddr[9]                   ; Lost Fanouts              ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[9]                                    ;
-; Instr_Reciver:i_r|instr[18]                ; Stuck at GND              ; Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[4]                                  ;
-;                                            ; due to stuck port data_in ;                                                                                 ;
-; Instr_Reciver:i_r|instr[19]                ; Stuck at GND              ; Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[5]                                  ;
-;                                            ; due to stuck port data_in ;                                                                                 ;
-; Instr_Reciver:i_r|instr[20]                ; Stuck at GND              ; Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[6]                                  ;
-;                                            ; due to stuck port data_in ;                                                                                 ;
-; Instr_Reciver:i_r|instr[21]                ; Stuck at GND              ; Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[7]                                  ;
-;                                            ; due to stuck port data_in ;                                                                                 ;
-; Instr_Reciver:i_r|instr[22]                ; Stuck at GND              ; Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[8]                                  ;
-;                                            ; due to stuck port data_in ;                                                                                 ;
-; Instr_Reciver:i_r|instr[23]                ; Stuck at GND              ; Instr_Reciver:i_r|Decode:dc|PC_decode_wdata[9]                                  ;
-;                                            ; due to stuck port data_in ;                                                                                 ;
-; MM_Manager:mm_m|raddr[10]                  ; Lost Fanouts              ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[10]                                   ;
-; MM_Manager:mm_m|raddr[12]                  ; Lost Fanouts              ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[12]                                   ;
-; Instr_Reciver:i_r|instr[26]                ; Stuck at GND              ; Instr_Reciver:i_r|instr[2]                                                      ;
-;                                            ; due to stuck port data_in ;                                                                                 ;
-; Instr_Reciver:i_r|instr[27]                ; Stuck at GND              ; Instr_Reciver:i_r|instr[3]                                                      ;
-;                                            ; due to stuck port data_in ;                                                                                 ;
-; Instr_Reciver:i_r|instr[28]                ; Stuck at GND              ; Instr_Reciver:i_r|instr[4]                                                      ;
-;                                            ; due to stuck port data_in ;                                                                                 ;
-; Instr_Reciver:i_r|instr[29]                ; Stuck at GND              ; Instr_Reciver:i_r|instr[5]                                                      ;
-;                                            ; due to stuck port data_in ;                                                                                 ;
-; Instr_Reciver:i_r|instr[30]                ; Stuck at GND              ; Instr_Reciver:i_r|instr[6]                                                      ;
-;                                            ; due to stuck port data_in ;                                                                                 ;
-; Instr_Reciver:i_r|instr[31]                ; Stuck at GND              ; Instr_Reciver:i_r|instr[7]                                                      ;
-;                                            ; due to stuck port data_in ;                                                                                 ;
-; MM_Manager:mm_m|raddr[11]                  ; Lost Fanouts              ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[11]                                   ;
-+--------------------------------------------+---------------------------+---------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                      ;
++---------------------------+--------------------+---------------------------------------------------------------------------------+
+; Register name             ; Reason for Removal ; Registers Removed due to This Register                                          ;
++---------------------------+--------------------+---------------------------------------------------------------------------------+
+; MM_Manager:mm_m|raddr[16] ; Lost Fanouts       ; Instr_Reciver:i_r|Decode:dc|intr, Instr_Reciver:i_r|Decode:dc|MMemory_raddr[16] ;
+; MM_Manager:mm_m|raddr[17] ; Lost Fanouts       ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[17]                                   ;
+; MM_Manager:mm_m|raddr[18] ; Lost Fanouts       ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[18]                                   ;
+; MM_Manager:mm_m|raddr[13] ; Lost Fanouts       ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[13]                                   ;
+; MM_Manager:mm_m|raddr[14] ; Lost Fanouts       ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[14]                                   ;
+; MM_Manager:mm_m|raddr[15] ; Lost Fanouts       ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[15]                                   ;
+; MM_Manager:mm_m|raddr[0]  ; Lost Fanouts       ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[0]                                    ;
+; MM_Manager:mm_m|raddr[1]  ; Lost Fanouts       ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[1]                                    ;
+; MM_Manager:mm_m|raddr[2]  ; Lost Fanouts       ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[2]                                    ;
+; MM_Manager:mm_m|raddr[3]  ; Lost Fanouts       ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[3]                                    ;
+; MM_Manager:mm_m|raddr[4]  ; Lost Fanouts       ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[4]                                    ;
+; MM_Manager:mm_m|raddr[5]  ; Lost Fanouts       ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[5]                                    ;
+; MM_Manager:mm_m|raddr[6]  ; Lost Fanouts       ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[6]                                    ;
+; MM_Manager:mm_m|raddr[7]  ; Lost Fanouts       ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[7]                                    ;
+; MM_Manager:mm_m|raddr[8]  ; Lost Fanouts       ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[8]                                    ;
+; MM_Manager:mm_m|raddr[9]  ; Lost Fanouts       ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[9]                                    ;
+; MM_Manager:mm_m|raddr[10] ; Lost Fanouts       ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[10]                                   ;
+; MM_Manager:mm_m|raddr[11] ; Lost Fanouts       ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[11]                                   ;
+; MM_Manager:mm_m|raddr[12] ; Lost Fanouts       ; Instr_Reciver:i_r|Decode:dc|MMemory_raddr[12]                                   ;
++---------------------------+--------------------+---------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -436,12 +394,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 98    ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 32    ;
+; Total registers                              ; 196   ;
+; Number of registers using Synchronous Clear  ; 36    ;
+; Number of registers using Synchronous Load   ; 26    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 82    ;
+; Number of registers using Clock Enable       ; 151   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -451,11 +409,11 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
-; 4:1                ; 24 bits   ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |FakeCPU|PC_register:pc|PC[23]                ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |FakeCPU|PC_register:pc|PC[11]                ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |FakeCPU|Instr_Reciver:i_r|solving            ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |FakeCPU|Instr_Reciver:i_r|Decode:dc|decoding ;
-; 3:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |FakeCPU|Instr_Reciver:i_r|Decode:dc|decoding ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |FakeCPU|PC_register:pc|PC[30]                ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; Yes        ; |FakeCPU|PC_register:pc|PC[20]                ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 38 LEs               ; 0 LEs                  ; No         ; |FakeCPU|Instr_Reciver:i_r|Decode:dc|decoding ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |FakeCPU|Instr_Reciver:i_r|solving            ;
+; 67:1               ; 5 bits    ; 220 LEs       ; 30 LEs               ; 190 LEs                ; No         ; |FakeCPU|Instr_Reciver:i_r|Decode:dc|decoding ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
 
 
@@ -475,6 +433,17 @@ Encoding Type:  One-Hot
 +---------------------------------+--------------------+------+--------------------------------------------------------+
 ; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                      ;
 +---------------------------------+--------------------+------+--------------------------------------------------------+
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clkgen:instr_clkgen ;
++----------------+----------+--------------------------------------+
+; Parameter Name ; Value    ; Type                                 ;
++----------------+----------+--------------------------------------+
+; clk_freq       ; 10000000 ; Signed Integer                       ;
+; countlimit     ; 2        ; Signed Integer                       ;
++----------------+----------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +------------------------------------------------------------------------------------------+
@@ -651,30 +620,44 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
++-------------------------------------------------+
+; Port Connectivity Checks: "clkgen:instr_clkgen" ;
++-------+-------+----------+----------------------+
+; Port  ; Type  ; Severity ; Details              ;
++-------+-------+----------+----------------------+
+; rst   ; Input ; Info     ; Stuck at GND         ;
+; clken ; Input ; Info     ; Stuck at VCC         ;
++-------+-------+----------+----------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 98                          ;
-;     ENA               ; 50                          ;
-;     ENA SLD           ; 32                          ;
-;     plain             ; 16                          ;
-; arriav_lcell_comb     ; 64                          ;
-;     arith             ; 32                          ;
-;         1 data inputs ; 32                          ;
-;     normal            ; 32                          ;
-;         0 data inputs ; 1                           ;
-;         2 data inputs ; 10                          ;
-;         3 data inputs ; 2                           ;
-;         4 data inputs ; 12                          ;
-;         5 data inputs ; 5                           ;
-;         6 data inputs ; 2                           ;
-; boundary_port         ; 100                         ;
+; arriav_ff             ; 196                         ;
+;     ENA               ; 122                         ;
+;     ENA SCLR          ; 3                           ;
+;     ENA SLD           ; 26                          ;
+;     SCLR              ; 33                          ;
+;     plain             ; 12                          ;
+; arriav_lcell_comb     ; 173                         ;
+;     arith             ; 64                          ;
+;         1 data inputs ; 64                          ;
+;     extend            ; 2                           ;
+;         7 data inputs ; 2                           ;
+;     normal            ; 107                         ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 15                          ;
+;         3 data inputs ; 31                          ;
+;         4 data inputs ; 28                          ;
+;         5 data inputs ; 9                           ;
+;         6 data inputs ; 23                          ;
+; boundary_port         ; 108                         ;
 ; stratixv_ram_block    ; 8                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.10                        ;
-; Average LUT depth     ; 1.65                        ;
+; Max LUT depth         ; 6.70                        ;
+; Average LUT depth     ; 2.68                        ;
 +-----------------------+-----------------------------+
 
 
@@ -693,10 +676,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Fri Dec 18 18:37:00 2020
+    Info: Processing started: Fri Dec 18 21:47:44 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FakeCPU -c FakeCPU
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file clkgen.v
+    Info (12023): Found entity 1: clkgen File: D:/Programming/DigitExp/exp12/FakeCPU/clkgen.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file instr_reciver.v
     Info (12023): Found entity 1: Instr_Reciver File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file fakecpu.v
@@ -716,7 +701,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file mm_mana
 Info (12021): Found 1 design units, including 1 entities, in source file fib_rom.v
     Info (12023): Found entity 1: fib_rom File: D:/Programming/DigitExp/exp12/FakeCPU/fib_rom.v Line: 39
 Info (12127): Elaborating entity "FakeCPU" for the top level hierarchy
-Info (12128): Elaborating entity "fib_rom" for hierarchy "fib_rom:fib" File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 14
+Info (12128): Elaborating entity "clkgen" for hierarchy "clkgen:instr_clkgen" File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 17
+Info (12128): Elaborating entity "fib_rom" for hierarchy "fib_rom:fib" File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 21
 Info (12128): Elaborating entity "altsyncram" for hierarchy "fib_rom:fib|altsyncram:altsyncram_component" File: D:/Programming/DigitExp/exp12/FakeCPU/fib_rom.v Line: 81
 Info (12130): Elaborated megafunction instantiation "fib_rom:fib|altsyncram:altsyncram_component" File: D:/Programming/DigitExp/exp12/FakeCPU/fib_rom.v Line: 81
 Info (12133): Instantiated megafunction "fib_rom:fib|altsyncram:altsyncram_component" with the following parameter: File: D:/Programming/DigitExp/exp12/FakeCPU/fib_rom.v Line: 81
@@ -737,7 +723,7 @@ Info (12133): Instantiated megafunction "fib_rom:fib|altsyncram:altsyncram_compo
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_9tf1.tdf
     Info (12023): Found entity 1: altsyncram_9tf1 File: D:/Programming/DigitExp/exp12/FakeCPU/db/altsyncram_9tf1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_9tf1" for hierarchy "fib_rom:fib|altsyncram:altsyncram_component|altsyncram_9tf1:auto_generated" File: e:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "MM_Manager" for hierarchy "MM_Manager:mm_m" File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 25
+Info (12128): Elaborating entity "MM_Manager" for hierarchy "MM_Manager:mm_m" File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 32
 Info (12128): Elaborating entity "MMemory" for hierarchy "MM_Manager:mm_m|MMemory:mm_ram" File: D:/Programming/DigitExp/exp12/FakeCPU/MM_Manager.v Line: 14
 Info (12128): Elaborating entity "altsyncram" for hierarchy "MM_Manager:mm_m|MMemory:mm_ram|altsyncram:altsyncram_component" File: D:/Programming/DigitExp/exp12/FakeCPU/MMemory.v Line: 88
 Info (12130): Elaborated megafunction instantiation "MM_Manager:mm_m|MMemory:mm_ram|altsyncram:altsyncram_component" File: D:/Programming/DigitExp/exp12/FakeCPU/MMemory.v Line: 88
@@ -773,111 +759,144 @@ Info (12128): Elaborating entity "decode_r2a" for hierarchy "MM_Manager:mm_m|MMe
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_ihb.tdf
     Info (12023): Found entity 1: mux_ihb File: D:/Programming/DigitExp/exp12/FakeCPU/db/mux_ihb.tdf Line: 22
 Info (12128): Elaborating entity "mux_ihb" for hierarchy "MM_Manager:mm_m|MMemory:mm_ram|altsyncram:altsyncram_component|altsyncram_7qu1:auto_generated|mux_ihb:mux3" File: D:/Programming/DigitExp/exp12/FakeCPU/db/altsyncram_7qu1.tdf Line: 47
-Info (12128): Elaborating entity "REG" for hierarchy "REG:register" File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 32
-Info (12128): Elaborating entity "PC_register" for hierarchy "PC_register:pc" File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 41
-Info (12128): Elaborating entity "Instr_Reciver" for hierarchy "Instr_Reciver:i_r" File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 46
-Info (12128): Elaborating entity "Decode" for hierarchy "Instr_Reciver:i_r|Decode:dc" File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 34
-Warning (10036): Verilog HDL or VHDL warning at Decode.v(24): object "shamt" assigned a value but never read File: D:/Programming/DigitExp/exp12/FakeCPU/Decode.v Line: 24
-Info (12128): Elaborating entity "ALU" for hierarchy "Instr_Reciver:i_r|Decode:dc|ALU:a" File: D:/Programming/DigitExp/exp12/FakeCPU/Decode.v Line: 44
+Info (12128): Elaborating entity "REG" for hierarchy "REG:register" File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 39
+Info (12128): Elaborating entity "PC_register" for hierarchy "PC_register:pc" File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 48
+Info (12128): Elaborating entity "Instr_Reciver" for hierarchy "Instr_Reciver:i_r" File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 54
+Info (12128): Elaborating entity "Decode" for hierarchy "Instr_Reciver:i_r|Decode:dc" File: D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v Line: 37
+Warning (10036): Verilog HDL or VHDL warning at Decode.v(26): object "shamt" assigned a value but never read File: D:/Programming/DigitExp/exp12/FakeCPU/Decode.v Line: 26
+Info (12128): Elaborating entity "ALU" for hierarchy "Instr_Reciver:i_r|Decode:dc|ALU:a" File: D:/Programming/DigitExp/exp12/FakeCPU/Decode.v Line: 46
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "REG_rdata[31]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[30]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[29]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[28]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[27]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[26]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[25]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[24]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[23]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[22]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[21]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[20]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[19]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[18]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[17]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[16]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[15]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[14]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[13]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[12]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[11]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[10]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[9]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[8]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[7]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[6]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[5]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[4]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[3]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[2]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[1]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[0]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
+    Warning (12110): Net "REG_rdata[31]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[30]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[29]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[28]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[27]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[26]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[25]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[24]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[23]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[22]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[21]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[20]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[19]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[18]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[17]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[16]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[15]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[14]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[13]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[12]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[11]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[10]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[9]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[8]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[7]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[6]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[5]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[4]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[3]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[2]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[1]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[0]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "REG_rdata[31]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[30]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[29]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[28]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[27]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[26]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[25]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[24]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[23]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[22]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[21]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[20]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[19]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[18]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[17]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[16]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[15]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[14]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[13]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[12]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[11]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[10]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[9]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[8]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[7]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[6]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[5]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[4]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[3]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[2]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[1]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[0]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
+    Warning (12110): Net "REG_rdata[31]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[30]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[29]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[28]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[27]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[26]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[25]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[24]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[23]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[22]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[21]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[20]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[19]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[18]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[17]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[16]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[15]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[14]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[13]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[12]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[11]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[10]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[9]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[8]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[7]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[6]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[5]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[4]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[3]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[2]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[1]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[0]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "REG_rdata[31]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[30]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[29]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[28]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[27]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[26]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[25]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[24]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[23]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[22]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[21]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[20]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[19]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[18]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[17]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[16]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[15]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[14]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[13]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[12]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[11]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[10]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[9]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[8]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[7]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[6]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[5]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[4]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[3]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[2]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[1]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
-    Warning (12110): Net "REG_rdata[0]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 27
+    Warning (12110): Net "REG_rdata[31]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[30]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[29]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[28]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[27]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[26]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[25]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[24]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[23]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[22]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[21]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[20]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[19]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[18]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[17]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[16]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[15]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[14]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[13]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[12]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[11]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[10]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[9]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[8]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[7]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[6]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[5]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[4]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[3]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[2]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[1]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[0]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "REG_rdata[31]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[30]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[29]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[28]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[27]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[26]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[25]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[24]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[23]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[22]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[21]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[20]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[19]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[18]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[17]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[16]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[15]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[14]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[13]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[12]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[11]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[10]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[9]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[8]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[7]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[6]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[5]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[4]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[3]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[2]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[1]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
+    Warning (12110): Net "REG_rdata[0]" is missing source, defaulting to GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 34
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
         Warning (14320): Synthesized away node "MM_Manager:mm_m|MMemory:mm_ram|altsyncram:altsyncram_component|altsyncram_7qu1:auto_generated|ram_block1a0" File: D:/Programming/DigitExp/exp12/FakeCPU/db/altsyncram_7qu1.tdf Line: 48
@@ -1393,44 +1412,19 @@ Warning (14284): Synthesized away the following node(s):
         Warning (14320): Synthesized away node "MM_Manager:mm_m|MMemory:mm_ram|altsyncram:altsyncram_component|altsyncram_7qu1:auto_generated|ram_block1a510" File: D:/Programming/DigitExp/exp12/FakeCPU/db/altsyncram_7qu1.tdf Line: 15858
         Warning (14320): Synthesized away node "MM_Manager:mm_m|MMemory:mm_ram|altsyncram:altsyncram_component|altsyncram_7qu1:auto_generated|ram_block1a511" File: D:/Programming/DigitExp/exp12/FakeCPU/db/altsyncram_7qu1.tdf Line: 15889
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "test_instr[0]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[1]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[2]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[3]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[4]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[5]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[6]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[7]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[16]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[17]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[18]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[19]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[20]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[21]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[22]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[23]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[24]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[25]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[26]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[27]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[28]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[29]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[30]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
-    Warning (13410): Pin "test_instr[31]" is stuck at GND File: D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v Line: 10
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 75 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 213 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 378 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 35 input pins
-    Info (21059): Implemented 65 output pins
-    Info (21061): Implemented 105 logic cells
+    Info (21059): Implemented 73 output pins
+    Info (21061): Implemented 262 logic cells
     Info (21064): Implemented 8 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 641 warnings
-    Info: Peak virtual memory: 4901 megabytes
-    Info: Processing ended: Fri Dec 18 18:37:08 2020
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:16
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 649 warnings
+    Info: Peak virtual memory: 4902 megabytes
+    Info: Processing ended: Fri Dec 18 21:47:53 2020
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:17
 
 

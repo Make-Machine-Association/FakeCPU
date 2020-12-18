@@ -6,8 +6,15 @@ module FakeCPU(
 	input go,
 	output finish,
 	output [31:0]data_pc,
-	output [31:0]test_instr
+	output [31:0]test_instr,
+	output clk_instr,
+	output [4:0]test_decoding,
+	output test_run,
+	output test_ok
 	);
+	
+	wire instr_clk;
+	clkgen #(10000000) instr_clkgen(clk, 1'b0, 1'b1, instr_clk);
 	
 	wire [7:0]instr_1B;
 	wire [9:0]instr_addr;
@@ -42,8 +49,9 @@ module FakeCPU(
 	
 	wire instr_go;
 	wire instr_finish;
-	Instr_Reciver i_r(clk, instr_1B, MMemory_rdata, MMemory_wdata, REG_rdata, REG_wdata, instr_addr, MMemory_raddr, MMemory_waddr, MMemory_wren,
-		REG_raddr, REG_waddr, REG_wren, PC_rdata, PC_instr_wdata, PC_instr_wren, PC_decode_wdata, PC_decode_wren, intr, instr_go, instr_finish, test_instr);
+	Instr_Reciver i_r(instr_clk, instr_1B, MMemory_rdata, MMemory_wdata, REG_rdata, REG_wdata, instr_addr, MMemory_raddr, MMemory_waddr, MMemory_wren,
+		REG_raddr, REG_waddr, REG_wren, PC_rdata, PC_instr_wdata, PC_instr_wren, PC_decode_wdata, PC_decode_wren, intr, instr_go, instr_finish, 
+		test_instr, test_decoding, test_run, test_ok);
 	
 	//Test
 	assign PC_init_data = init_pc;
@@ -51,5 +59,6 @@ module FakeCPU(
 	assign instr_go = go;
 	assign finish = instr_finish;
 	assign data_pc = PC_rdata;
+	assign clk_instr = instr_clk;
 	
 endmodule

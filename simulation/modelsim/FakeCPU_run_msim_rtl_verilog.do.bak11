@@ -5,6 +5,7 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
+vlog -vlog01compat -work work +incdir+D:/Programming/DigitExp/exp12/FakeCPU {D:/Programming/DigitExp/exp12/FakeCPU/clkgen.v}
 vlog -vlog01compat -work work +incdir+D:/Programming/DigitExp/exp12/FakeCPU {D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v}
 vlog -vlog01compat -work work +incdir+D:/Programming/DigitExp/exp12/FakeCPU {D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v}
 vlog -vlog01compat -work work +incdir+D:/Programming/DigitExp/exp12/FakeCPU {D:/Programming/DigitExp/exp12/FakeCPU/ALU.v}
