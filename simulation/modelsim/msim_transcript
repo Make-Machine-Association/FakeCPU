@@ -10,33 +10,132 @@
 # Copying E:/FPGA/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
+# vlog -vlog01compat -work work +incdir+D:/Programming/DigitExp/exp12/FakeCPU {D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:37:23 on Dec 18,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Programming/DigitExp/exp12/FakeCPU" D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v 
+# -- Compiling module Instr_Reciver
+# 
+# Top level modules:
+# 	Instr_Reciver
+# End time: 18:37:23 on Dec 18,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Programming/DigitExp/exp12/FakeCPU {D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:37:23 on Dec 18,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Programming/DigitExp/exp12/FakeCPU" D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v 
+# -- Compiling module FakeCPU
+# 
+# Top level modules:
+# 	FakeCPU
+# End time: 18:37:23 on Dec 18,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Programming/DigitExp/exp12/FakeCPU {D:/Programming/DigitExp/exp12/FakeCPU/ALU.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:20:18 on Dec 06,2020
+# Start time: 18:37:23 on Dec 18,2020
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Programming/DigitExp/exp12/FakeCPU" D:/Programming/DigitExp/exp12/FakeCPU/ALU.v 
 # -- Compiling module ALU
 # 
 # Top level modules:
 # 	ALU
-# End time: 15:20:18 on Dec 06,2020, Elapsed time: 0:00:00
+# End time: 18:37:23 on Dec 18,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# 
-# vlog -vlog01compat -work work +incdir+D:/Programming/DigitExp/exp12/FakeCPU/simulation/modelsim {D:/Programming/DigitExp/exp12/FakeCPU/simulation/modelsim/ALU.vt}
+# vlog -vlog01compat -work work +incdir+D:/Programming/DigitExp/exp12/FakeCPU {D:/Programming/DigitExp/exp12/FakeCPU/REG.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:20:18 on Dec 06,2020
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Programming/DigitExp/exp12/FakeCPU/simulation/modelsim" D:/Programming/DigitExp/exp12/FakeCPU/simulation/modelsim/ALU.vt 
-# -- Compiling module ALU_vlg_tst
+# Start time: 18:37:23 on Dec 18,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Programming/DigitExp/exp12/FakeCPU" D:/Programming/DigitExp/exp12/FakeCPU/REG.v 
+# -- Compiling module REG
 # 
 # Top level modules:
-# 	ALU_vlg_tst
-# End time: 15:20:18 on Dec 06,2020, Elapsed time: 0:00:00
+# 	REG
+# End time: 18:37:23 on Dec 18,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Programming/DigitExp/exp12/FakeCPU {D:/Programming/DigitExp/exp12/FakeCPU/MMemory.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:37:23 on Dec 18,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Programming/DigitExp/exp12/FakeCPU" D:/Programming/DigitExp/exp12/FakeCPU/MMemory.v 
+# -- Compiling module MMemory
+# 
+# Top level modules:
+# 	MMemory
+# End time: 18:37:24 on Dec 18,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Programming/DigitExp/exp12/FakeCPU {D:/Programming/DigitExp/exp12/FakeCPU/Decode.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:37:24 on Dec 18,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Programming/DigitExp/exp12/FakeCPU" D:/Programming/DigitExp/exp12/FakeCPU/Decode.v 
+# -- Compiling module Decode
+# 
+# Top level modules:
+# 	Decode
+# End time: 18:37:24 on Dec 18,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Programming/DigitExp/exp12/FakeCPU {D:/Programming/DigitExp/exp12/FakeCPU/PC_register.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:37:24 on Dec 18,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Programming/DigitExp/exp12/FakeCPU" D:/Programming/DigitExp/exp12/FakeCPU/PC_register.v 
+# -- Compiling module PC_register
+# 
+# Top level modules:
+# 	PC_register
+# End time: 18:37:24 on Dec 18,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Programming/DigitExp/exp12/FakeCPU {D:/Programming/DigitExp/exp12/FakeCPU/MM_Manager.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:37:24 on Dec 18,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Programming/DigitExp/exp12/FakeCPU" D:/Programming/DigitExp/exp12/FakeCPU/MM_Manager.v 
+# -- Compiling module MM_Manager
+# 
+# Top level modules:
+# 	MM_Manager
+# End time: 18:37:24 on Dec 18,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Programming/DigitExp/exp12/FakeCPU {D:/Programming/DigitExp/exp12/FakeCPU/fib_rom.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:37:24 on Dec 18,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Programming/DigitExp/exp12/FakeCPU" D:/Programming/DigitExp/exp12/FakeCPU/fib_rom.v 
+# -- Compiling module fib_rom
+# 
+# Top level modules:
+# 	fib_rom
+# End time: 18:37:24 on Dec 18,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  ALU_vlg_tst
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" ALU_vlg_tst 
-# Start time: 15:20:19 on Dec 06,2020
-# Loading work.ALU_vlg_tst
+# vlog -vlog01compat -work work +incdir+D:/Programming/DigitExp/exp12/FakeCPU/simulation/modelsim {D:/Programming/DigitExp/exp12/FakeCPU/simulation/modelsim/FakeCPU.vt}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:37:24 on Dec 18,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Programming/DigitExp/exp12/FakeCPU/simulation/modelsim" D:/Programming/DigitExp/exp12/FakeCPU/simulation/modelsim/FakeCPU.vt 
+# -- Compiling module FakeCPU_vlg_tst
+# 
+# Top level modules:
+# 	FakeCPU_vlg_tst
+# End time: 18:37:24 on Dec 18,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  FakeCPU_vlg_tst
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" FakeCPU_vlg_tst 
+# Start time: 18:37:24 on Dec 18,2020
+# Loading work.FakeCPU_vlg_tst
+# Loading work.FakeCPU
+# Loading work.fib_rom
+# Loading altera_mf_ver.altsyncram
+# Loading work.MM_Manager
+# Loading work.MMemory
+# Loading work.REG
+# Loading work.PC_register
+# Loading work.Instr_Reciver
+# Loading work.Decode
 # Loading work.ALU
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-3017) D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v(32): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /FakeCPU_vlg_tst/i1/register File: D:/Programming/DigitExp/exp12/FakeCPU/REG.v
+# ** Warning: (vsim-3015) D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v(32): [PCDPC] - Port size (1) does not match connection size (32) for port 'wren'. The port definition is at: D:/Programming/DigitExp/exp12/FakeCPU/REG.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /FakeCPU_vlg_tst/i1/register File: D:/Programming/DigitExp/exp12/FakeCPU/REG.v
+# ** Warning: (vsim-3015) D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v(32): [PCDPC] - Port size (5) does not match connection size (32) for port 'outaddr'. The port definition is at: D:/Programming/DigitExp/exp12/FakeCPU/REG.v(5).
+#    Time: 0 ps  Iteration: 0  Instance: /FakeCPU_vlg_tst/i1/register File: D:/Programming/DigitExp/exp12/FakeCPU/REG.v
+# ** Warning: (vsim-3722) D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v(32): [TFMPC] - Missing connection for port 'dout'.
 # 
 # add wave *
 # view structure
@@ -44,6 +143,8 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-# Running testbench
-# End time: 15:23:44 on Dec 06,2020, Elapsed time: 0:03:25
-# Errors: 0, Warnings: 0
+# ** Note: $stop    : D:/Programming/DigitExp/exp12/FakeCPU/simulation/modelsim/FakeCPU.vt(61)
+#    Time: 10100 ns  Iteration: 0  Instance: /FakeCPU_vlg_tst
+# Break in Module FakeCPU_vlg_tst at D:/Programming/DigitExp/exp12/FakeCPU/simulation/modelsim/FakeCPU.vt line 61
+# End time: 18:38:07 on Dec 18,2020, Elapsed time: 0:00:43
+# Errors: 0, Warnings: 4
