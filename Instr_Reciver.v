@@ -5,9 +5,9 @@ module Instr_Reciver(
 	output [7:0]MMemory_wdata,
 	input [31:0]REG_rdata,
 	output [31:0]REG_wdata,
-	output reg [9:0]instr_addr,
-	output [18:0]MMemory_raddr,
-	output [18:0]MMemory_waddr,
+	output reg [31:0]instr_addr,
+	output [31:0]MMemory_raddr,
+	output [31:0]MMemory_waddr,
 	output MMemory_wren,
 	output [4:0]REG_raddr,
 	output [4:0]REG_waddr,
@@ -34,7 +34,8 @@ module Instr_Reciver(
 	assign test_instr = instr;
 	
 	Decode dc(clk, instr, run, MMemory_rdata, MMemory_wdata, REG_rdata, REG_wdata, ok, 
-		MMemory_raddr, MMemory_waddr, MMemory_wren, REG_raddr, REG_waddr, REG_wren, PC_decode_wdata, PC_decode_wren, intr, test_decoding);
+		MMemory_raddr, MMemory_waddr, MMemory_wren, REG_raddr, REG_waddr, REG_wren, PC_decode_wdata, PC_decode_wren, PC_rdata, intr, 
+		test_decoding);
 	
 	initial
 	begin
@@ -49,25 +50,25 @@ module Instr_Reciver(
 		if (go && !finish) begin
 			case (solving)
 				3'b000: begin
-					instr_addr <= PC_rdata[9:0];
+					instr_addr <= PC_rdata;
 					PC_instr_wdata <= PC_rdata+32'd1;
 					PC_instr_wren <= 1'b1;
 					solving <= 3'b001;
 				end
 				3'b001: begin
-					instr_addr <= PC_rdata[9:0];
+					instr_addr <= PC_rdata;
 					instr <= {instr[23:0], instr_1B};
 					PC_instr_wdata <= PC_rdata+32'd1;
 					solving <= 3'b010;
 				end
 				3'b010: begin
-					instr_addr <= PC_rdata[9:0];
+					instr_addr <= PC_rdata;
 					instr <= {instr[23:0], instr_1B};
 					PC_instr_wdata <= PC_rdata+32'd1;
 					solving <= 3'b011;
 				end
 				3'b011: begin
-					instr_addr <= PC_rdata[9:0];
+					instr_addr <= PC_rdata;
 					instr <= {instr[23:0], instr_1B};
 					PC_instr_wdata <= PC_rdata+32'd1;
 					solving <= 3'b100;

@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Fri Dec 18 21:47:53 2020
+Analysis & Synthesis Status : Successful - Sat Dec 19 23:25:34 2020
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : FakeCPU
 Top-level Entity Name : FakeCPU
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 196
-Total pins : 108
+Total registers : 393
+Total pins : 248
 Total virtual pins : 0
-Total block memory bits : 8,192
+Total block memory bits : 4,203,520
 Total DSP Blocks : 0
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

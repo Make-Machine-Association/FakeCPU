@@ -34,6 +34,8 @@ reg clk;
 reg go;
 reg [31:0] init_pc;
 reg init_wren;
+reg [31:0]test_mmemory_addr;
+reg test_intr;
 // wires                                               
 wire clk_instr;
 wire [31:0]  data_pc;
@@ -42,6 +44,12 @@ wire [4:0]  test_decoding;
 wire [31:0]  test_instr;
 wire test_run;
 wire test_ok;
+wire [31:0]test_mmemory_data;
+wire [31:0]test_reg_rdata;
+wire [31:0]test_reg_wdata;
+wire [4:0]test_reg_raddr;
+wire [4:0]test_reg_waddr;
+wire test_reg_wren;
 
 // assign statements (if any)                          
 FakeCPU i1 (
@@ -56,18 +64,32 @@ FakeCPU i1 (
 	.test_decoding(test_decoding),
 	.test_instr(test_instr),
 	.test_run(test_run),
-	.test_ok(test_ok)
+	.test_ok(test_ok),
+	.test_mmemory_addr(test_mmemory_addr),
+	.test_intr(test_intr),
+	.test_mmemory_data(test_mmemory_data),
+	.test_reg_rdata(test_reg_rdata),
+	.test_reg_wdata(test_reg_wdata),
+	.test_reg_raddr(test_reg_raddr),
+	.test_reg_waddr(test_reg_waddr),
+	.test_reg_wren(test_reg_wren)
 );
 initial                                                
 begin                                                  
 // code that executes only once                        
-// insert code here --> begin                          
+// insert code here --> begin
 	clk = 1'b0; go = 1'b0; init_pc = 32'd0; init_wren = 1'b1;
+	test_intr = 1'b0;  test_mmemory_addr = 32'h0;
 	#10;
 	init_wren = 1'b0; 
 	#10;
 	go = 1'b1;
-	#1000;
+	#100000;
+	test_mmemory_addr = 32'd40; test_intr = 1'b1;
+	#10;
+	test_mmemory_addr = 32'd41; #10;
+	test_mmemory_addr = 32'd42; #10;
+	test_mmemory_addr = 32'd43; #10;
 	$stop;
 // --> end                                             
 $display("Running testbench");                       

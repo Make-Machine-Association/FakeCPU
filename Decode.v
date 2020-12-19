@@ -7,14 +7,15 @@ module Decode(
 	input [31:0]REG_rdata,
 	output reg [31:0]REG_wdata,
 	output reg ok,
-	output reg [18:0]MMemory_raddr,
-	output reg [18:0]MMemory_waddr,
+	output reg [31:0]MMemory_raddr,
+	output reg [31:0]MMemory_waddr,
 	output reg MMemory_wren,
 	output reg [4:0]REG_raddr,
 	output reg [4:0]REG_waddr,
 	output reg REG_wren,
 	output reg [31:0]PC_decode_wdata,
 	output reg PC_decode_wren,
+	input [31:0]PC_rdata,
 	output reg intr,
 	//Test
 	output [4:0]test_decoding
@@ -52,6 +53,14 @@ module Decode(
 		decoding = 5'd0;
 		ok = 1'b0;
 		intr = 1'b0;
+		REG_raddr = 5'd0;
+		REG_waddr = 5'd0;
+		REG_wdata = 32'd0;
+		REG_wren = 1'b0;
+		MMemory_raddr = 32'd0;
+		MMemory_waddr = 32'd0;
+		MMemory_wdata = 8'd0;
+		MMemory_wren = 1'b0;
 	end
 	
 	always @ (posedge clk)
@@ -71,6 +80,7 @@ module Decode(
 								6'ha: ALU_ctrl <= 4'b1011;
 								6'hb: ALU_ctrl <= 4'b1010;
 							endcase
+							REG_raddr <= rs;
 							decoding <= 5'd1;
 						end
 						6'h8: begin
@@ -112,20 +122,19 @@ module Decode(
 						end
 						6'h2b: begin
 							//sw rt, offset(base)
-							decoding <= 5'd18;
+							decoding <= 5'd20;
 						end
 					endcase
-					REG_raddr <= rs;
 				end
 				5'd1: begin
 					//Read rs
 					ALU_rs <= REG_rdata;
+					REG_raddr <= rt;
 					decoding <= 5'd2;
 				end
 				5'd2: begin
 					//Read rt
 					ALU_rt <= REG_rdata;
-					REG_raddr <= rt;
 					decoding <= 5'd3;
 				end
 				5'd3: begin
@@ -134,20 +143,11 @@ module Decode(
 				end
 				5'd4: begin
 					//Write rd
-					case (funct)
-						6'h0, 6'h2: begin
-							if (!ALU_overflow) begin
-								REG_waddr <= rd;
-								REG_wdata <= ALU_rd;
-								REG_wren <= 1'b1;
-							end
-						end
-						default: begin
-							REG_waddr <= rd;
-							REG_wdata <= ALU_rd;
-							REG_wren <= 1'b1;
-						end
-					endcase
+					if (!ALU_overflow) begin
+						REG_waddr <= rd;
+						REG_wdata <= ALU_rd;
+						REG_wren <= 1'b1;
+					end
 					decoding <= 5'd5;
 				end
 				5'd5: begin
@@ -173,20 +173,11 @@ module Decode(
 				end
 				5'd9: begin
 					//Write rt
-					case (opcode)
-						6'h8: begin
-							if (!ALU_overflow) begin
-								REG_waddr <= rt;
-								REG_wdata <= ALU_rd;
-								REG_wren <= 1'b1;
-							end
-						end
-						default: begin
-							REG_waddr <= rt;
-							REG_wdata <= ALU_rd;
-							REG_wren <= 1'b1;
-						end
-					endcase
+					if (!ALU_overflow) begin
+						REG_waddr <= rt;
+						REG_wdata <= ALU_rd;
+						REG_wren <= 1'b1;
+					end
 					decoding <= 5'd5;
 				end
 				5'd10: begin
@@ -196,8 +187,8 @@ module Decode(
 				end
 				5'd11: begin
 					//Blez
-					if (REG_rdata <= 0) begin
-						PC_decode_wdata <= {imm16, 2'b00};
+					if (REG_rdata[31] == 1 || REG_rdata == 32'd0) begin
+						PC_decode_wdata <= PC_rdata+{{14{imm16[15]}}, imm16, 2'b00};
 						PC_decode_wren <= 1'b1;
 					end
 					decoding <= 5'd12;
@@ -210,71 +201,81 @@ module Decode(
 				end
 				5'd13: begin
 					//Jump
-					PC_decode_wdata <= {imm26, 2'b00};
+					PC_decode_wdata <= {{4{imm26[25]}},imm26, 2'b00};
 					PC_decode_wren <= 1'b1;
 					decoding <= 5'd12;
 				end
 				5'd14: begin
-					//Load MMemory[7:0]
-					MMemory_raddr <= rs+imm16;
+					//Read base
+					REG_raddr <= rs;
 					decoding <= 5'd15;
 				end
 				5'd15: begin
-					//Load MMemory[15:8]
-					REG_wdata[7:0] <= MMemory_rdata;
-					MMemory_raddr <= MMemory_raddr+19'd1;
+					//Load MMemory
+					MMemory_raddr <= REG_rdata+{{16{imm16[15]}}, imm16};
 					decoding <= 5'd16;
 				end
 				5'd16: begin
-					//Load MMemory[23:16]
-					REG_wdata[15:8] <= MMemory_rdata;
+					//Load MMemory[7:0]
+					REG_wdata[7:0] <= MMemory_rdata;
 					MMemory_raddr <= MMemory_raddr+19'd1;
 					decoding <= 5'd17;
 				end
 				5'd17: begin
-					//Load MMemory[31:24]
-					REG_wdata[23:16] <= MMemory_rdata;
+					//Load MMemory[15:8]
+					REG_wdata[15:8] <= MMemory_rdata;
 					MMemory_raddr <= MMemory_raddr+19'd1;
 					decoding <= 5'd18;
 				end
 				5'd18: begin
+					//Load MMemory[23:16]
+					REG_wdata[23:16] <= MMemory_rdata;
+					MMemory_raddr <= MMemory_raddr+19'd1;
+					decoding <= 5'd19;
+				end
+				5'd19: begin
 					//Load to rt
 					REG_wdata[31:24] <= MMemory_rdata;
 					REG_waddr <= rt;
 					REG_wren <= 1'b1;
 					decoding <= 5'd5;
 				end
-				5'd19: begin
-					//Save rt
-					REG_raddr <= rt;
-					decoding <= 5'd20;
-				end
 				5'd20: begin
-					//Save rt[7:0]
-					MMemory_waddr <= rs+imm16;
-					MMemory_wdata <= REG_rdata[7:0];
-					MMemory_wren <= 1'b1;
+					//Read base
+					REG_raddr <= rs;
 					decoding <= 5'd21;
 				end
 				5'd21: begin
-					//Save rt[15:8]
-					MMemory_waddr <= MMemory_waddr+19'd1;
-					MMemory_wdata <= REG_rdata[15:8];
+					//Save rt
+					MMemory_waddr <= REG_rdata+{{16{imm16[15]}},imm16};
+					REG_raddr <= rt;
 					decoding <= 5'd22;
 				end
 				5'd22: begin
-					//Save rt[23:16]
-					MMemory_waddr <= MMemory_waddr+19'd1;
-					MMemory_wdata <= REG_rdata[23:16];
+					//Save rt[7:0]
+					MMemory_wdata <= REG_rdata[7:0];
+					MMemory_wren <= 1'b1;
 					decoding <= 5'd23;
 				end
 				5'd23: begin
-					//Save rt[31:24]
+					//Save rt[15:8]
 					MMemory_waddr <= MMemory_waddr+19'd1;
-					MMemory_wdata <= REG_rdata[31:24];
+					MMemory_wdata <= REG_rdata[15:8];
 					decoding <= 5'd24;
 				end
 				5'd24: begin
+					//Save rt[23:16]
+					MMemory_waddr <= MMemory_waddr+19'd1;
+					MMemory_wdata <= REG_rdata[23:16];
+					decoding <= 5'd25;
+				end
+				5'd25: begin
+					//Save rt[31:24]
+					MMemory_waddr <= MMemory_waddr+19'd1;
+					MMemory_wdata <= REG_rdata[31:24];
+					decoding <= 5'd26;
+				end
+				5'd26: begin
 					//Finish
 					MMemory_wren <= 1'b0;
 					decoding <= 5'd0;

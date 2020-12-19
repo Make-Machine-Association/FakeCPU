@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dD:/Programming/DigitExp/exp12/FakeCPU/simulation/modelsim
 vALU
-Z1 !s110 1608299284
+Z1 !s110 1608391389
 !i10b 1
 !s100 R_hW[jH2TMB>FLMk9J[]n1
 IgXMKaG;CJD9eZ]d239^if1
@@ -23,7 +23,7 @@ Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z4 !s108 1608299284.000000
+Z4 !s108 1608391389.000000
 !s107 D:/Programming/DigitExp/exp12/FakeCPU/ALU.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Programming/DigitExp/exp12/FakeCPU|D:/Programming/DigitExp/exp12/FakeCPU/ALU.v|
 !i113 1
@@ -32,7 +32,7 @@ Z6 !s92 -vlog01compat -work work +incdir+D:/Programming/DigitExp/exp12/FakeCPU
 Z7 tCvgOpt 0
 n@a@l@u
 vclkgen
-Z8 !s110 1608299283
+R1
 !i10b 1
 !s100 9eW6`Y9b:]^b4?YVWz:?l0
 I39`3JAT>7k4KPP_H`U1<f3
@@ -46,7 +46,7 @@ R3
 r1
 !s85 0
 31
-Z9 !s108 1608299283.000000
+R4
 !s107 D:/Programming/DigitExp/exp12/FakeCPU/clkgen.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Programming/DigitExp/exp12/FakeCPU|D:/Programming/DigitExp/exp12/FakeCPU/clkgen.v|
 !i113 1
@@ -54,13 +54,13 @@ R5
 R6
 R7
 vDecode
-R1
+Z8 !s110 1608391390
 !i10b 1
-!s100 HLI[hdS3oacND6=6M85PV2
-IlOnJLFWSPlaPg@bn7?HjP2
+!s100 ZmQmV3FQN6gJ6_V?XU]nS3
+INFT;86@F5QLLAAeGIPh2n1
 R2
 R0
-w1608299237
+w1608391212
 8D:/Programming/DigitExp/exp12/FakeCPU/Decode.v
 FD:/Programming/DigitExp/exp12/FakeCPU/Decode.v
 L0 1
@@ -68,7 +68,7 @@ R3
 r1
 !s85 0
 31
-R4
+Z9 !s108 1608391390.000000
 !s107 D:/Programming/DigitExp/exp12/FakeCPU/Decode.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Programming/DigitExp/exp12/FakeCPU|D:/Programming/DigitExp/exp12/FakeCPU/Decode.v|
 !i113 1
@@ -79,11 +79,11 @@ n@decode
 vFakeCPU
 R1
 !i10b 1
-!s100 [<YkR9K<4ekE70>lR5;3h0
-Ia9Y_48VG`T9ObQcW4<OiX2
+!s100 0hc:T^4K3K=UI[9jTn^id2
+IAK2;L3ASiF5KeRD_TN6ET1
 R2
 R0
-w1608298148
+w1608390763
 8D:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v
 FD:/Programming/DigitExp/exp12/FakeCPU/FakeCPU.v
 L0 1
@@ -100,13 +100,13 @@ R6
 R7
 n@fake@c@p@u
 vFakeCPU_vlg_tst
-R1
+R8
 !i10b 1
-!s100 FQfOXBb`KheKeU@<Co7gC2
-I0U::4zI;Xa3B@l^S053BV0
+!s100 ;HJBD4:I>CI7l?aS=8e@j1
+IT;XjEd:6`0ZU^m19DUI_F3
 R2
 R0
-w1608298195
+w1608391381
 8D:/Programming/DigitExp/exp12/FakeCPU/simulation/modelsim/FakeCPU.vt
 FD:/Programming/DigitExp/exp12/FakeCPU/simulation/modelsim/FakeCPU.vt
 L0 28
@@ -114,7 +114,7 @@ R3
 r1
 !s85 0
 31
-R4
+R9
 !s107 D:/Programming/DigitExp/exp12/FakeCPU/simulation/modelsim/FakeCPU.vt|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Programming/DigitExp/exp12/FakeCPU/simulation/modelsim|D:/Programming/DigitExp/exp12/FakeCPU/simulation/modelsim/FakeCPU.vt|
 !i113 1
@@ -123,13 +123,13 @@ R5
 R7
 n@fake@c@p@u_vlg_tst
 vfib_rom
-R1
+R8
 !i10b 1
 !s100 lNL>Dh4KmmA4LmD<T]HiD3
 I:@NhB:5BTRZW?TCC;X=dn3
 R2
 R0
-w1608284766
+w1608391163
 8D:/Programming/DigitExp/exp12/FakeCPU/fib_rom.v
 FD:/Programming/DigitExp/exp12/FakeCPU/fib_rom.v
 Z10 L0 39
@@ -137,7 +137,7 @@ R3
 r1
 !s85 0
 31
-R4
+R9
 !s107 D:/Programming/DigitExp/exp12/FakeCPU/fib_rom.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Programming/DigitExp/exp12/FakeCPU|D:/Programming/DigitExp/exp12/FakeCPU/fib_rom.v|
 !i113 1
@@ -145,13 +145,13 @@ R5
 R6
 R7
 vInstr_Reciver
-R8
+R1
 !i10b 1
-!s100 00dIA@0^9U;68L]4`Hfc02
-IkTHJc]hfS:U5VZL8MDfi`3
+!s100 8:cgQ]dGXEGYNUNGc^Y7Z1
+IdOb1j7OEOS[cCTJYjNP7T0
 R2
 R0
-w1608299096
+w1608387137
 8D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v
 FD:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v
 L0 1
@@ -159,7 +159,7 @@ R3
 r1
 !s85 0
 31
-R9
+R4
 !s107 D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Programming/DigitExp/exp12/FakeCPU|D:/Programming/DigitExp/exp12/FakeCPU/Instr_Reciver.v|
 !i113 1
@@ -168,13 +168,13 @@ R6
 R7
 n@instr_@reciver
 vMM_Manager
-R1
+R8
 !i10b 1
-!s100 mVakA:P_?H<JOXl8`E6Yn3
-Ic>VhaU436aR:=5kNbK]Wc1
+!s100 ;]X49GJUnmYc>hS1C1z9h2
+IRTo6>eHYzFHz7bA6Y@o;40
 R2
 R0
-w1608283805
+w1608387609
 8D:/Programming/DigitExp/exp12/FakeCPU/MM_Manager.v
 FD:/Programming/DigitExp/exp12/FakeCPU/MM_Manager.v
 L0 1
@@ -182,7 +182,7 @@ R3
 r1
 !s85 0
 31
-R4
+R9
 !s107 D:/Programming/DigitExp/exp12/FakeCPU/MM_Manager.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Programming/DigitExp/exp12/FakeCPU|D:/Programming/DigitExp/exp12/FakeCPU/MM_Manager.v|
 !i113 1
@@ -191,13 +191,13 @@ R6
 R7
 n@m@m_@manager
 vMMemory
-R1
+R8
 !i10b 1
-!s100 Y9_eGenTbd75M:8`iGdU[2
-ILX`FZed=JS];FFgFjYgB10
+!s100 YP^=U9hc4dOE3OR`Ni20T0
+IXne9N0NA:c7fR3mH;]R3c0
 R2
 R0
-w1608280998
+w1608391156
 8D:/Programming/DigitExp/exp12/FakeCPU/MMemory.v
 FD:/Programming/DigitExp/exp12/FakeCPU/MMemory.v
 R10
@@ -205,7 +205,7 @@ R3
 r1
 !s85 0
 31
-R4
+R9
 !s107 D:/Programming/DigitExp/exp12/FakeCPU/MMemory.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Programming/DigitExp/exp12/FakeCPU|D:/Programming/DigitExp/exp12/FakeCPU/MMemory.v|
 !i113 1
@@ -214,7 +214,7 @@ R6
 R7
 n@m@memory
 vPC_register
-R1
+R8
 !i10b 1
 !s100 Tee8`Y:f`L=eE@`nNNGSX0
 I3FnhJ3AVc@USEF503FZhD3
@@ -228,7 +228,7 @@ R3
 r1
 !s85 0
 31
-R4
+R9
 !s107 D:/Programming/DigitExp/exp12/FakeCPU/PC_register.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Programming/DigitExp/exp12/FakeCPU|D:/Programming/DigitExp/exp12/FakeCPU/PC_register.v|
 !i113 1
@@ -237,13 +237,13 @@ R6
 R7
 n@p@c_register
 vREG
-R1
+R8
 !i10b 1
-!s100 J00N:<hcLTA^PQWlW_dSf2
-I5Dd:@U09KC^]]NT>L9o8c1
+!s100 WN<<;mg@66knfeIjD<CN_0
+I8Nz@hK6:k6NY5f9lmAee20
 R2
 R0
-w1608121624
+w1608391053
 8D:/Programming/DigitExp/exp12/FakeCPU/REG.v
 FD:/Programming/DigitExp/exp12/FakeCPU/REG.v
 L0 1
@@ -251,7 +251,7 @@ R3
 r1
 !s85 0
 31
-R4
+R9
 !s107 D:/Programming/DigitExp/exp12/FakeCPU/REG.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Programming/DigitExp/exp12/FakeCPU|D:/Programming/DigitExp/exp12/FakeCPU/REG.v|
 !i113 1
