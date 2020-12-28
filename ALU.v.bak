@@ -1,7 +1,0 @@
-module ALU(
-	input [31:0]src,
-	input [31:0]dest,
-	output [31:0]res
-	);
-	
-endmodule

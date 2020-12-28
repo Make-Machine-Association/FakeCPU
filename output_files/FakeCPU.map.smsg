@@ -1,1 +1,0 @@
-Info (10281): Verilog HDL Declaration information at Decode.v(9): object "REG_Wdata" differs only in case from object "REG_wdata" in the same scope File: D:/Programming/DigitExp/exp12/FakeCPU/Decode.v Line: 9

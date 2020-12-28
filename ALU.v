@@ -2,6 +2,7 @@ module ALU(
 	input [31:0]rs,
 	input [31:0]rt,
 	input [3:0]ctrl,
+	input [4:0]sa,
 	output reg [31:0]rd,
 	output reg overflow
 	);
@@ -18,6 +19,8 @@ module ALU(
 	wire [31:0]sltu;
 	wire [31:0]slt;
 	wire [31:0]neg_rt;
+	wire [31:0]sll;
+	wire [31:0]srl;
 	wire addOF;
 	wire subOF;
 	wire subSF;
@@ -45,6 +48,9 @@ module ALU(
 	
 	assign slt = (subOF != subSF) && (!subZF);
 	
+	assign sll = rt << sa;
+	assign srl = rt >> sa;
+	
 	always @ (*)
 	begin
 		overflow = 1'b0;
@@ -67,6 +73,8 @@ module ALU(
 			end
 			4'b1010: rd = sltu;
 			4'b1011: rd = slt;
+			4'b1100: rd = sll;
+			4'b1101: rd = srl;
 			default: rd = 32'd0;
 		endcase
 	end

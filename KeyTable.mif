@@ -1,0 +1,108 @@
+-- Copyright (C) 2017  Intel Corporation. All rights reserved.
+-- Your use of Intel Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Intel Program License 
+-- Subscription Agreement, the Intel Quartus Prime License Agreement,
+-- the Intel FPGA IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Intel and sold by Intel or its authorized distributors.  Please
+-- refer to the applicable agreement for further details.
+
+
+
+WIDTH=8;
+DEPTH=256;
+
+ADDRESS_RADIX=HEX;
+DATA_RADIX=UNS;
+
+CONTENT BEGIN
+	[000..00C]  :   0;
+	00D  :   32;
+	00E  :   96;
+	[00F..014]  :   0;
+	015  :   113;
+	016  :   49;
+	[017..019]  :   0;
+	01A  :   122;
+	01B  :   115;
+	01C  :   97;
+	01D  :   119;
+	01E  :   50;
+	[01F..020]  :   0;
+	021  :   99;
+	022  :   120;
+	023  :   100;
+	024  :   101;
+	025  :   52;
+	026  :   51;
+	[027..028]  :   0;
+	029  :   32;
+	02A  :   118;
+	02B  :   102;
+	02C  :   116;
+	02D  :   114;
+	02E  :   53;
+	[02F..030]  :   0;
+	031  :   110;
+	032  :   98;
+	033  :   104;
+	034  :   103;
+	035  :   121;
+	036  :   54;
+	[037..039]  :   0;
+	03A  :   109;
+	03B  :   106;
+	03C  :   117;
+	03D  :   55;
+	03E  :   56;
+	[03F..040]  :   0;
+	041  :   44;
+	042  :   107;
+	043  :   105;
+	044  :   111;
+	045  :   48;
+	046  :   57;
+	[047..048]  :   0;
+	049  :   46;
+	04A  :   47;
+	04B  :   108;
+	04C  :   59;
+	04D  :   112;
+	04E  :   45;
+	[04F..051]  :   0;
+	052  :   39;
+	053  :   0;
+	054  :   91;
+	055  :   61;
+	[056..059]  :   0;
+	05A  :   13;
+	05B  :   93;
+	05C  :   0;
+	05D  :   92;
+	[05E..065]  :   0;
+	066  :   8;
+	[067..068]  :   0;
+	069  :   49;
+	06A  :   0;
+	06B  :   52;
+	06C  :   55;
+	[06D..06F]  :   0;
+	070  :   48;
+	071  :   46;
+	072  :   50;
+	073  :   53;
+	074  :   54;
+	075  :   56;
+	[076..078]  :   0;
+	079  :   43;
+	07A  :   51;
+	07B  :   45;
+	07C  :   42;
+	07D  :   57;
+	[07E..0FF]  :   0;
+END;

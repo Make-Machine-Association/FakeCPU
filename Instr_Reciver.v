@@ -23,6 +23,7 @@ module Instr_Reciver(
 	//Test
 	output [31:0]test_instr,
 	output [4:0]test_decoding,
+	output [2:0]test_solving,
 	output test_run,
 	output test_ok
 	);
@@ -32,6 +33,7 @@ module Instr_Reciver(
 	wire ok;
 	
 	assign test_instr = instr;
+	assign test_solving = solving;
 	
 	Decode dc(clk, instr, run, MMemory_rdata, MMemory_wdata, REG_rdata, REG_wdata, ok, 
 		MMemory_raddr, MMemory_waddr, MMemory_wren, REG_raddr, REG_waddr, REG_wren, PC_decode_wdata, PC_decode_wren, PC_rdata, intr, 
@@ -79,6 +81,7 @@ module Instr_Reciver(
 					solving <= 3'b101;
 				end
 				3'b101: begin
+					/*
 					if (instr == 32'h00000000) begin
 						solving <= 3'b000;
 						finish <= 1'b1;
@@ -86,6 +89,9 @@ module Instr_Reciver(
 						run <= 1'b1;
 						solving <= 3'b110;
 					end
+					*/
+					run <= 1'b1;
+					solving <= 3'b110;
 				end
 				3'b110: begin
 					if (ok) begin

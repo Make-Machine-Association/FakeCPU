@@ -17,7 +17,7 @@
 // suit user's needs .Comments are provided in each section to help the user    
 // fill out necessary details.                                                  
 // *****************************************************************************
-// Generated on "12/18/2020 20:11:42"
+// Generated on "12/23/2020 22:15:47"
                                                                                 
 // Verilog Test Bench template for design : FakeCPU
 // 
@@ -30,67 +30,76 @@ module FakeCPU_vlg_tst();
 // general purpose registers
 reg eachvec;
 // test vector input registers
-reg clk;
-reg go;
-reg [31:0] init_pc;
-reg init_wren;
-reg [31:0]test_mmemory_addr;
-reg test_intr;
+reg clk_50;
+reg [3:0] key;
+reg ps2_clk;
+reg ps2_dat;
+reg [9:0] sw;
 // wires                                               
 wire clk_instr;
-wire [31:0]  data_pc;
 wire finish;
+wire [6:0]  hex0;
+wire [6:0]  hex1;
+wire [6:0]  hex2;
+wire [6:0]  hex3;
+wire [6:0]  hex4;
+wire [6:0]  hex5;
+wire [9:0]  ledr;
 wire [4:0]  test_decoding;
+wire [7:0]  test_gfx_cmd_state;
 wire [31:0]  test_instr;
-wire test_run;
+wire [17:0]  test_instr_addr;
 wire test_ok;
-wire [31:0]test_mmemory_data;
-wire [31:0]test_reg_rdata;
-wire [31:0]test_reg_wdata;
-wire [4:0]test_reg_raddr;
-wire [4:0]test_reg_waddr;
-wire test_reg_wren;
+wire test_run;
+wire [2:0]  test_solving;
+wire [7:0]  vga_b;
+wire vga_blank_n;
+wire vga_clk;
+wire [7:0]  vga_g;
+wire vga_hs;
+wire [7:0]  vga_r;
+wire vga_sync_n;
+wire vga_vs;
 
 // assign statements (if any)                          
 FakeCPU i1 (
 // port map - connection between master ports and signals/registers   
-	.clk(clk),
+	.clk_50(clk_50),
 	.clk_instr(clk_instr),
-	.data_pc(data_pc),
 	.finish(finish),
-	.go(go),
-	.init_pc(init_pc),
-	.init_wren(init_wren),
+	.hex0(hex0),
+	.hex1(hex1),
+	.hex2(hex2),
+	.hex3(hex3),
+	.hex4(hex4),
+	.hex5(hex5),
+	.key(key),
+	.ledr(ledr),
+	.ps2_clk(ps2_clk),
+	.ps2_dat(ps2_dat),
+	.sw(sw),
 	.test_decoding(test_decoding),
+	.test_gfx_cmd_state(test_gfx_cmd_state),
 	.test_instr(test_instr),
-	.test_run(test_run),
+	.test_instr_addr(test_instr_addr),
 	.test_ok(test_ok),
-	.test_mmemory_addr(test_mmemory_addr),
-	.test_intr(test_intr),
-	.test_mmemory_data(test_mmemory_data),
-	.test_reg_rdata(test_reg_rdata),
-	.test_reg_wdata(test_reg_wdata),
-	.test_reg_raddr(test_reg_raddr),
-	.test_reg_waddr(test_reg_waddr),
-	.test_reg_wren(test_reg_wren)
+	.test_run(test_run),
+	.test_solving(test_solving),
+	.vga_b(vga_b),
+	.vga_blank_n(vga_blank_n),
+	.vga_clk(vga_clk),
+	.vga_g(vga_g),
+	.vga_hs(vga_hs),
+	.vga_r(vga_r),
+	.vga_sync_n(vga_sync_n),
+	.vga_vs(vga_vs)
 );
 initial                                                
 begin                                                  
 // code that executes only once                        
-// insert code here --> begin
-	clk = 1'b0; go = 1'b0; init_pc = 32'd0; init_wren = 1'b1;
-	test_intr = 1'b0;  test_mmemory_addr = 32'h0;
-	#10;
-	init_wren = 1'b0; 
-	#10;
-	go = 1'b1;
-	#100000;
-	test_mmemory_addr = 32'd40; test_intr = 1'b1;
-	#10;
-	test_mmemory_addr = 32'd41; #10;
-	test_mmemory_addr = 32'd42; #10;
-	test_mmemory_addr = 32'd43; #10;
-	$stop;
+// insert code here --> begin                          
+	clk_50 = 1'b0;
+	forever #5 clk_50 = ~clk_50;
 // --> end                                             
 $display("Running testbench");                       
 end                                                    
@@ -100,7 +109,8 @@ always
 begin                                                  
 // code executes for every event on sensitivity list   
 // insert code here --> begin                          
-	#5 clk = ~clk;
+                                                       
+@eachvec;                                              
 // --> end                                             
 end                                                    
 endmodule

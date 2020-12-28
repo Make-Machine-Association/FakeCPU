@@ -1,0 +1,125 @@
+-- Copyright (C) 2017  Intel Corporation. All rights reserved.
+-- Your use of Intel Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Intel Program License 
+-- Subscription Agreement, the Intel Quartus Prime License Agreement,
+-- the Intel FPGA IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Intel and sold by Intel or its authorized distributors.  Please
+-- refer to the applicable agreement for further details.
+
+-- Quartus Prime generated Memory Initialization File (.mif)
+
+WIDTH=8;
+DEPTH=327680;
+
+ADDRESS_RADIX=HEX;
+DATA_RADIX=UNS;
+
+CONTENT BEGIN
+	00000  :   104;
+	[00001..00003]  :   0;
+	00004  :   101;
+	[00005..00007]  :   0;
+	00008  :   108;
+	[00009..0000B]  :   0;
+	0000C  :   108;
+	[0000D..0000F]  :   0;
+	00010  :   111;
+	[00011..0001B]  :   0;
+	0001C  :   72;
+	0001D  :   101;
+	[0001E..0001F]  :   108;
+	00020  :   111;
+	00021  :   44;
+	00022  :   32;
+	00023  :   119;
+	00024  :   111;
+	00025  :   114;
+	00026  :   108;
+	00027  :   100;
+	00028  :   33;
+	[00029..0002F]  :   0;
+	00030  :   73;
+	00031  :   110;
+	00032  :   118;
+	00033  :   97;
+	00034  :   108;
+	00035  :   105;
+	00036  :   100;
+	00037  :   32;
+	00038  :   67;
+	00039  :   111;
+	[0003A..0003B]  :   109;
+	0003C  :   97;
+	0003D  :   110;
+	0003E  :   100;
+	0003F  :   33;
+	[00040..00043]  :   0;
+	00044  :   102;
+	[00045..00047]  :   0;
+	00048  :   97;
+	[00049..0004B]  :   0;
+	0004C  :   99;
+	[0004D..0004F]  :   0;
+	00050  :   116;
+	[00051..0005B]  :   0;
+	0005C  :   102;
+	[0005D..0005F]  :   0;
+	00060  :   105;
+	[00061..00063]  :   0;
+	00064  :   98;
+	[00065..0006B]  :   0;
+	0006C  :   101;
+	[0006D..0006F]  :   0;
+	00070  :   118;
+	[00071..00073]  :   0;
+	00074  :   97;
+	[00075..00077]  :   0;
+	00078  :   108;
+	[00079..00083]  :   0;
+	00084  :   101;
+	[00085..00087]  :   0;
+	00088  :   99;
+	[00089..0008B]  :   0;
+	0008C  :   104;
+	[0008D..0008F]  :   0;
+	00090  :   111;
+	[00091..0009B]  :   0;
+	0009C  :   108;
+	[0009D..0009F]  :   0;
+	000A0  :   101;
+	[000A1..000A3]  :   0;
+	000A4  :   100;
+	[000A5..000AF]  :   0;
+	000B0  :   115;
+	[000B1..000B3]  :   0;
+	000B4  :   101;
+	[000B5..000B7]  :   0;
+	000B8  :   116;
+	[000B9..000BB]  :   0;
+	000BC  :   102;
+	[000BD..000BF]  :   0;
+	000C0  :   103;
+	[000C1..000C7]  :   0;
+	000C8  :   115;
+	[000C9..000CB]  :   0;
+	000CC  :   101;
+	[000CD..000CF]  :   0;
+	000D0  :   116;
+	[000D1..000D3]  :   0;
+	000D4  :   98;
+	[000D5..000D7]  :   0;
+	000D8  :   103;
+	[000D9..000DF]  :   0;
+	000E0  :   99;
+	[000E1..000E3]  :   0;
+	000E4  :   108;
+	[000E5..000E7]  :   0;
+	000E8  :   115;
+	[000E9..4FFFF]  :   0;
+END;

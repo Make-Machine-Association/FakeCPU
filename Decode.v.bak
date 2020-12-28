@@ -1,8 +1,0 @@
-module Decode(
-	input clk;
-	input [31:0]instr,
-	input run,
-	output ok
-	);
-
-endmodule

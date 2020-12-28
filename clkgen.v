@@ -4,8 +4,9 @@ module clkgen(
 	input clken,
 	output reg clkout
 	);
-	parameter clk_freq = 1000;
-	parameter countlimit = 50000000/2/clk_freq;
+	parameter dest_freq = 1000;
+	parameter orig_freq = 50000000;
+	parameter countlimit = orig_freq/2/dest_freq;
 	reg[31:0] clkcount;
 	
 	initial
